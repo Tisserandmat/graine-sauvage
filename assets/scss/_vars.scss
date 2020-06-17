@@ -1,44 +1,22 @@
-@import "app";
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
 
-@font-face
-{
-    font-family: 'Open Sans Bold';
-    src: url('../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot');
-    src: url('../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.woff') format('woff'),
-    url('../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.ttf') format('truetype'),
-    url('../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face
-{
-    font-family: 'Open Sans Light';
-    src: url('../fonts/opensans_light_macroman/OpenSans-Light-webfont.eot');
-    src: url('../fonts/opensans_light_macroman/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans_light_macroman/OpenSans-Light-webfont.woff') format('woff'),
-    url('../fonts/opensans_light_macroman/OpenSans-Light-webfont.ttf') format('truetype'),
-    url('../fonts/opensans_light_macroman/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-$nav-bar: #151210;
-$widget-color: #C7B494;
+$primary-color : #005668;;
+$light-green : #5a974c;
 $light-color: #ffffff;
 
-$font-text: 'Open Sans Light', sans-serif;
-$font-title: 'Open Sans Bold', sans-serif;
+$font-title: 'Indie Flower', cursive;
+$font-text: 'Oxygen', sans-serif;
 
 $size-text: 16px;
+$size-footer-text: 10px;
+$size-navbar-text: 18px;
 $size-intermediate :calc(2.5 * var($size-text));
 $size-title: calc(3 * var($size-text));
 
-$padding : 20px;
-$padding-sm : calc(var($padding) *2);
-$padding-lg : calc(var($padding) *4);
+$theme-colors: (
+        "primary": $primary-color,
+        "danger": #FF4136,
+        "info": $light-green,
+);
 
-$margin: 20px;
-$margin-sm : calc(var($margin) *2);
-$margin-lg : calc(var($margin) *4);
