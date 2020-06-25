@@ -1,3 +1,10 @@
 @import "vars";
 
+.navbar{
+  border-bottom: 1px solid $light-green;
+}
+.navbar-brand{
+  font-family: $font-title;
+  font-size: $size-title;
+}
 @import "~bootstrap/scss/bootstrap";
