@@ -1,0 +1,12 @@
+@import "app";
+
+form{
+ border: 1px solid $sun-color;
+  padding: 13%;
+  border-radius: 7px;
+  text-align: center;
+}
+
+button{
+  font-family: $font-title;
+}

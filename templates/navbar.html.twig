@@ -23,9 +23,12 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link text-success" href="#">Connexion</a>
-            </li>
+            {% if app.user %}
+                {{ app.user.email }}
+                <a href="{{ path('app_logout') }}" class="text-success nav-link"> Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="text-success nav-link"> Connexion</a>
+            {% endif %}
         </ul>
     </div>
 
