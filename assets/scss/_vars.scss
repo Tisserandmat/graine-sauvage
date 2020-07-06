@@ -4,6 +4,7 @@
 $primary-color : #005668;;
 $light-green : #5a974c;
 $light-color: #ffffff;
+$sun-color: #FF9505;
 
 $font-title: 'Indie Flower', cursive;
 $font-text: 'Oxygen', sans-serif;
@@ -15,8 +16,8 @@ $size-intermediate :calc(2.5 * var($size-text));
 $size-title: calc(3 * var($size-text));
 
 $theme-colors: (
-        "primary": $primary-color,
         "danger": #FF4136,
-        "info": $light-green,
+        "success": $light-green,
+        "info": #FF9505
 );
 

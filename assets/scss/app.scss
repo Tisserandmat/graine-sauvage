@@ -1,3 +1,20 @@
 @import "vars";
 
+.navbar{
+  border-bottom: 1px solid $sun-color;
+}
+
+.navbar-brand{
+  font-family: $font-title;
+  font-size: $size-title;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  /*Set the fixed height of the footer here*/
+  height: 40%;
+}
+
+
 @import "~bootstrap/scss/bootstrap";
