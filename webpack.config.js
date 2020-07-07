@@ -18,6 +18,7 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
+    .addEntry('sideBar', './assets/js/sideBar.js')
     .addStyleEntry('login', './assets/scss/login.scss')
 
     // .addEntry('page2', './assets/js/page2.js')
