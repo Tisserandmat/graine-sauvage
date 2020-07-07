@@ -1,3 +1,5 @@
+const $ = require('jquery');
+
 $(document).ready(function () {
     //Sidenav animation
 
@@ -55,7 +57,7 @@ $(document).ready(function () {
                     $(".tab-dropdown-parent").removeClass("active-tab");
                     $(".tab-dropdown-parent .drop-down-list#tab-dropdown").removeClass("animate");
                     this_ele.addClass("active-tab");
-                    this_ele.find(".drop-down-list#tab-dropdown").addClass("animate");
+                    this_ele.find(".drop-down-list#tab-droCapture du 2020-07-07 21-59-08pdown").addClass("animate");
                     ;
                 }
             } else {

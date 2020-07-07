@@ -1,10 +1,9 @@
 <div class="main-wrapper">
     <div class="left-side-nav sidenav-anim">
         <div class="inner-content-wrapper">
-            <div class="inner-align ">
+            <div class="inner-align">
                 <ul class="nav-list">
-                    <li class="nav-list-item"><a class="nav-list-link active" href="#"><i class="fa fa-inbox nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">inbox</span></a></li>
-                    <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-star nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">Favourite</span></a></li>
+                    <li class="nav-list-item"><a class="nav-list-link " href="#"><i class="fas fa-seedling" aria-hidden="true"></i><span class="nav-list-link__info">Graine</span></a></li>
                     <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-bookmark nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">Bookmarks</span></a></li>
                     <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-trash nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">delete</span></a></li>
                     <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-tags nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">label</span></a></li>
@@ -26,19 +25,20 @@
         <div class="inner-content-wrapper">
             <div class="inner-align">
                 <ul class="nav-list">
-                    <li class="nav-list-item"><a class="nav-list-link active" href="#"><i class="fa fa-inbox nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">inbox</span></a></li>
-                    <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-star nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">Favourite</span></a></li>
-                    <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-bookmark nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">Bookmarks</span></a></li>
+                    <li class="nav-list-item"><a class="nav-list-link active" href="#"><i class="fas fa-home" aria-hidden="true"></i><span class="nav-list-link__info">Acceuil</span></a></li>
+                    <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fas fa-seedling"  aria-hidden="true"></i><span class="nav-list-link__info">Graines</span></a></li>
+                    <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fas fa-leaf" aria-hidden="true"></i><span class="nav-list-link__info">Légumes</span></a></li>
+                    <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span class="nav-list-link__info">Terrains</span></a></li>
                     <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-trash nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">delete</span></a></li>
-                    <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-tags nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">label</span></a></li>
+
                 </ul>
                 <div class="inner-list-bottom"><a class="fa fa-bars inner-list-bottom__link open-dropdown" href="#"></a>
                     <ul class="drop-down-list" id="dropdown">
-                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Home</a></li>
-                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Profile</a></li>
-                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Settings</a></li>
-                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Account</a></li>
-                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">sign out</a></li>
+                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="">Acceuil</a></li>
+                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Profil</a></li>
+{#                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Settings</a></li>#}
+{#                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Account</a></li>#}
+                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="{{ path('app_logout') }}">Déconnexion</a></li>
                     </ul>
                 </div>
             </div>
