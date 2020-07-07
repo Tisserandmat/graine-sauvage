@@ -20,6 +20,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('sideBar', './assets/js/sideBar.js')
     .addStyleEntry('login', './assets/scss/login.scss')
+    .addStyleEntry('admin', './assets/scss/admin.scss')
 
     // .addEntry('page2', './assets/js/page2.js')
 

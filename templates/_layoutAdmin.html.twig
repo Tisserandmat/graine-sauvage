@@ -5,7 +5,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  <title>{% block title %}Welcome!{% endblock %}</title>
  {% block stylesheets %}
-  {{ encore_entry_link_tags('app') }}
+  {{ encore_entry_link_tags('admin') }}
  {% endblock %}
 </head>
 <body>
@@ -13,10 +13,9 @@
 {% block body %}
 {% endblock %}
 {% block javascripts %}
- <script src="https://kit.fontawesome.com/38fc56fe7a.js" crossorigin="anonymous"></script>
  {{ encore_entry_script_tags('app') }}
  {{ encore_entry_script_tags('sideBar') }}
+ <script src="https://kit.fontawesome.com/38fc56fe7a.js" crossorigin="anonymous"></script>
 {% endblock %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
