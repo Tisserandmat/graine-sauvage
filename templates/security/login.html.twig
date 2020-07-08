@@ -26,14 +26,30 @@
                 <div id="formContent">
                     <!-- Login Form -->
                     <form method="post">
-                        <label for="login">Identifiant</label><input id="login" value="{{ last_username }}" class="form-control" name="login" placeholder="Votre identifiant">
-                        <label for="inputPassword" class="mt-3">Mot de passe</label><input type="password" name="password" id="inputPassword" placeholder="Mot de passe" class="form-control">
+
+                        <label for="login">Identifiant</label>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-success"><i class="fas fa-user text-info"></i></span>
+                            </div>
+                            <input value="{{ last_username }}" name="login" id="login" class="form-control" required placeholder="Votre identifiant" autofocus>
+                        </div>
+
+                        <label for="inputPassword" class="mt-2">Mot de passe</label>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-success"><i class="fas fa-key text-info"></i></span>
+                            </div>
+                            <input type="password" name="password" id="inputPassword" placeholder="Mot de passe" class="form-control" required>
+                        </div>
+
                         <button class="btn btn-lg btn-success text-info mt-3 mb-3" type="submit">
                             Connexion
                         </button>
+
                         <input type="hidden" name="_csrf_token"
-                                        value="{{ csrf_token('authenticate') }}"
-                        >
+                               value="{{ csrf_token('authenticate') }}">
+
                     </form>
 
                     <!-- Remind Passowrd -->
@@ -46,40 +62,7 @@
 
                 </div>
             </div>
-            {#                <label for="inputEmail">Identifiant</label>#}
-            {#                <div class="input-group form-group">#}
-            {#                    <div class="input-group-prepend">#}
-            {#                        <span class="input-group-text bg-info"><i class="fas fa-user"></i></span>#}
-            {#                    </div>#}
-            {#                    <input value="{{ last_username }}" name="login" id="inputEmail" class="form-control"#}
-            {#                           required placeholder="Votre identifiant"#}
-            {#                           autofocus>#}
-            {#                </div>#}
-            {#                <label for="inputPassword" class="mt-2">Mot de passe</label>#}
-            {#                <div class="input-group form-group">#}
-            {#                    <div class="input-group-prepend">#}
-            {#                        <span class="input-group-text bg-info"><i class="fas fa-key"></i></span>#}
-            {#                    </div>#}
-
-            {#                    <input type="password" name="password" id="inputPassword" placeholder="Mot de passe"#}
-            {#                           class="form-control" required>#}
         </div>
-
-
-
-
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" name="_remember_me"> Remember me
-                </label>
-            </div>
-        #}
-
-
     </div>
 
 
