@@ -95,7 +95,7 @@ class Vegetable
     private $soilType;
 
     /**
-     * @ORM\OneToOne(targetEntity=Seed::class, inversedBy="vegeteable", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Seed::class, mappedBy="vegetable", cascade={"persist", "remove"})
      */
     private $seed;
 
@@ -208,7 +208,6 @@ class Vegetable
     public function setSeed(?Seed $seed): self
     {
         $this->seed = $seed;
-
         return $this;
     }
 }

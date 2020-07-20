@@ -44,10 +44,10 @@ class Seed
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le champ ne doit pas être vide")
      * @Assert\Length(
-     *      min = 5,
+     *      min = 3,
      *      max = 255,
-     *      minMessage = "Votre champ  Semi doit comporter au moins {{limit}} caractères",
-     *      maxMessage = "Votre champ Semi doit comporter au moins {{limit}} caractères",
+     *      minMessage = "Le champ  Semi doit comporter au moins {{limit}} caractères",
+     *      maxMessage = "Le champ Semi doit comporter au moins {{limit}} caractères",
      * )
      */
     private $seeding;
@@ -60,7 +60,7 @@ class Seed
     private $price;
 
     /**
-     * @ORM\OneToOne(targetEntity=Vegetable::class, mappedBy="seed", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Vegetable::class, inversedBy="seed", cascade={"persist", "remove"})
      */
     private $vegetable;
 
