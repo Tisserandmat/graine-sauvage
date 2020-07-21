@@ -1,4 +1,4 @@
-<div class="main-wrapper">
+<div class="main-wrapper mr-5">
     <div class="left-side-nav sidenav-anim">
         <div class="inner-content-wrapper">
             <div class="inner-align">
@@ -25,8 +25,8 @@
         <div class="inner-content-wrapper">
             <div class="inner-align">
                 <ul class="nav-list">
-                    <li class="nav-list-item"><a class="nav-list-link active" href="#"><i class="fas fa-home" aria-hidden="true"></i><span class="nav-list-link__info">Acceuil</span></a></li>
-                    <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fas fa-seedling"  aria-hidden="true"></i><span class="nav-list-link__info">Graines</span></a></li>
+                    <li class="nav-list-item"><a class="nav-list-link active" href="{{ path('admin_home') }}"><i class="fas fa-home" aria-hidden="true"></i><span class="nav-list-link__info">Acceuil</span></a></li>
+                    <li class="nav-list-item"><a class="nav-list-link" href="{{ path('seed_index') }}"><i class="fas fa-seedling"  aria-hidden="true"></i><span class="nav-list-link__info">Graines</span></a></li>
                     <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fas fa-leaf" aria-hidden="true"></i><span class="nav-list-link__info">Légumes</span></a></li>
                     <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span class="nav-list-link__info">Terrains</span></a></li>
                     <li class="nav-list-item"><a class="nav-list-link" href="#"><i class="fa fa-trash nav-list-link__icon" aria-hidden="true"></i><span class="nav-list-link__info">delete</span></a></li>
@@ -36,12 +36,11 @@
                     <ul class="drop-down-list" id="dropdown">
                         <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="">Acceuil</a></li>
                         <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Profil</a></li>
-{#                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Settings</a></li>#}
-{#                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Account</a></li>#}
+                        {#                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Settings</a></li>#}
+                        {#                        <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="#">Account</a></li>#}
                         <li class="drop-down-list-item dropdown-item"><a class="drop-down-list-item__link" href="{{ path('app_logout') }}">Déconnexion</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>

@@ -10,6 +10,13 @@
 </head>
 <body>
 {% include 'adminNavbar.html.twig' %}
+{% for category, messages in app.flashes %}
+ {% for message in messages %}
+  <div class="container alert alert-{{ category }} mt-3 text-center">
+   {{ message }}
+  </div>
+ {% endfor %}
+{% endfor %}
 {% block body %}
 {% endblock %}
 {% block javascripts %}
