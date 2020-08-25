@@ -18,9 +18,15 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry('sideBar', './assets/js/sideBar.js')
+    .addEntry('sidebar_js', './assets/js/sidebar.js')
+
+
+
     .addStyleEntry('login', './assets/scss/login.scss')
+    .addStyleEntry('navbar', './assets/scss/navbar.scss')
     .addStyleEntry('admin', './assets/scss/admin.scss')
+    .addStyleEntry('sidebar', './assets/scss/sidebar.scss')
+
 
     // .addEntry('page2', './assets/js/page2.js')
 

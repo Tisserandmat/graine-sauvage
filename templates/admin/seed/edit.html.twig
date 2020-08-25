@@ -1,6 +1,7 @@
-{% extends '_layoutAdmin.html.twig' %}
+{% extends '_layout.html.twig' %}
+{% block title %}Administration graines{% endblock %}
 {% block body %}
-    <div class="container">
+    <div class="container page-content">
         <div class="row justify-content-center mb-5 mt-5">
             <h1 class="text-center ">Modification {{ seed.name }} </h1>
         </div>
@@ -8,7 +9,7 @@
 
         {{ include('admin/seed/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
         <div class="row justify-content-between mt-5">
-            <button class="btn btn-success"><a href="{{ path('seed_index') }} " class="text-light"><i
+            <button class="btn btn-primary-color"><a href="{{ path('seed_index') }} " class="text-light"><i
                             class="fas fa-arrow-left"></i> Revenir à la liste</a></button>
             {{ include('admin/seed/_delete_form.html.twig') }}
         </div>

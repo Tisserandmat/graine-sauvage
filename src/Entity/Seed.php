@@ -34,8 +34,8 @@ class Seed
      * @Assert\Length(
      *      min = 15,
      *      max = 65535,
-     *      minMessage = "La  déscription doit comporter au moins {{limit}} caractères",
-     *      maxMessage = "La déscription doit comporter plus de {{limit}} caractères",
+     *      minMessage = "La  déscription doit comporter au moins 15 caractères",
+     *      maxMessage = "La déscription ne doit pas comporter plus de 65535 caractères",
      * )
      */
     private $description;
@@ -46,8 +46,8 @@ class Seed
      * @Assert\Length(
      *      min = 3,
      *      max = 255,
-     *      minMessage = "Le champ  Semi doit comporter au moins {{limit}} caractères",
-     *      maxMessage = "Le champ Semi doit comporter au moins {{limit}} caractères",
+     *      minMessage = "Le champ  Semi doit comporter au moins 3 caractères",
+     *      maxMessage = "Le champ Semi ne doit pas comporter plus de 255 caractères",
      * )
      */
     private $seeding;

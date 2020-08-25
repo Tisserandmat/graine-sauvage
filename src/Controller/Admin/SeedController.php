@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\Seed;
 use App\Form\SeedType;
 use App\Repository\SeedRepository;
-use Gitonomy\Git\Admin;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +30,7 @@ class SeedController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="seed_new", methods={"GET","POST"})
+     * @Route("/ajouts", name="seed_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -70,9 +69,7 @@ class SeedController extends AbstractController
     }
 
     /**
-     * Do you want to add a new property to Vegetable so that you can access/update Seed objects from it - e.g.
-     *$vegetable->getSeed()? (yes/no) [no]:
-     * @Route("/{id}/edit", name="seed_edit", methods={"GET","POST"})
+     * @Route("/{id}/modifier", name="seed_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Seed $seed
      * @return Response

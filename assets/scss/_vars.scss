@@ -18,6 +18,9 @@ $size-title: calc(3 * var($size-text));
 $theme-colors: (
         "danger": #FF4136,
         "success": $light-green,
-        "info": #FF9505
+        "info": #FF9505,
+        "primary-color": $primary-color
 );
+
+$radius-light-right: 0px 3px 3px 0px;
 

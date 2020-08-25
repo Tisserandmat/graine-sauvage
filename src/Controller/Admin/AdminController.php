@@ -18,6 +18,6 @@ class AdminController extends AbstractController
      */
     public function index()
     {
-        return $this->render('_layoutAdmin.html.twig');
+        return $this->render('base.html.twig');
     }
 }

@@ -1,12 +1,12 @@
-{% extends '_layoutAdmin.html.twig' %}
-
+{% extends '_layout.html.twig' %}
+{% block title %}Administration graines{% endblock %}
 {% block body %}
-    <div class="container text-center mt-5 mb-b">
-        <div class="row mb-5 mt5 justify-content-center text-center">
-            <h1 class="mb-5 mt-5">Graine {{ seed.name }}</h1>
-        </div>
+<div class="container page-content text-center mt-5 mb-b">
+    <div class="row mb-5 mt5 justify-content-center text-center">
+        <h1 class="mb-5 mt-5">Graine {{ seed.name }}</h1>
+    </div>
 
-        <div class="row mb-5 mt5">
+    <div class="row mb-5 mt5">
         <table class="table table-striped table-responsive-sm  col-4-sm table-hover mt-5 mb-5">
             <tbody>
             <tr>
@@ -27,21 +27,18 @@
             </tr>
             </tbody>
         </table>
-        </div>
-        <div class="row mb-5 mt5">
-               {{ include('admin/seed/_delete_form.html.twig') }}
-
-        </div>
-
-        <div class="row justify-content-between mb-5 mt-5">
-
-            <button class="btn btn-success mb-5 mt-5"><a href="{{ path('seed_index') }}" class="text-info"><i
-                            class="fas fa-arrow-left text-info"></i> Revenir à la liste</a></button>
-
-            <button class="btn btn-success mb-5 mt-5"><a href="{{ path('seed_edit', {'id': seed.id}) }}" class="text-info"><i
-                            class="fas fa-edit text-info"></i>
-                    Modifier</a>
-            </button>
-        </div>
     </div>
-{% endblock %}
+    <div class="row justify-content-between mb-5 mt5">
+
+        <button class="btn btn-primary-color "><a class="text-light" href="{{ path('seed_index') }}" ><i
+                        class="fas fa-arrow-left"></i> Revenir à la liste</a></button>
+
+        <button class="btn btn-primary-color "><a class="text-light" href="{{ path('seed_edit', {'id': seed.id}) }}"><i
+                        class="fas fa-edit"></i>
+                Modifier</a>
+        </button>
+
+        {{ include('admin/seed/_delete_form.html.twig') }}
+    </div>
+    </div>
+    {% endblock %}

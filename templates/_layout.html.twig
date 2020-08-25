@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('sidebar') }}
+{% endblock %}
+{% block dashboard %}
+
+<div class="row page-wrapper   chiller-theme">
+    {% if app.user %}
+        <div id="sidebar" class=" bg-primary-color sidebar-wrapper">
+            <div class="sidebar-content ">
+                <div class="sidebar-brand">
+                    <a href="">Menu {{ app.user.login }}</a>
+                    <div id="show-sidebar">
+                        <i class="fas fa-arrow-circle-right"> </i>
+                    </div>
+                    <div id="close-sidebar">
+                        <i class="fas fa-arrow-circle-left"> </i>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>Général</span>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-tachometer-alt"> </i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="">
+                                <i class="fas fa-address-card"> </i>
+                                <span>Mon profil </span>
+                            </a>
+                            {% if is_granted('ROLE_ADMIN') %}
+                        </li>
+                            <li class="header-menu">
+                                <span>Administration</span>
+                            </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-folder"> </i>
+                                <span>Gestion des plantes</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('vegetable_index') }}">Plantes</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('seed_index') }}">Graines</a>
+                                    </li>
+                                </ul>
+{#                            <li>#}
+{#                                <a href="">#}
+{#                                    <span></span>#}
+{#                                </a>#}
+{#                            </li>#}
+                        {% endif %}
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fas fa-folder"> </i>
+                                    <span>Gestion des utilisateurs</span>
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="">Profils utilisateurs</a>
+                                        </li>
+{#                                        <li>#}
+{#                                            <a href=""></a>#}
+{#                                        </li>#}
+                                    </ul>
+                                </div>
+                            </li>
+{#                            <li class="header-menu">#}
+{#                                <span>Espace de travail</span>#}
+{#                            </li>#}
+{#                            <li class="sidebar-dropdown">#}
+{#                                <a href="#">#}
+{#                                    <i class="fas fa-users"> </i>#}
+{#                                    <span>Mes clients</span>#}
+{#                                </a>#}
+{#                                <div class="sidebar-submenu">#}
+{#                                    <ul>#}
+{#                                        <li>#}
+{#                                            <p>Pas de client</p>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="sidebar-dropdown">#}
+{#                                <a href="#">#}
+{#                                    <i class="fas fa-folder-open"> </i>#}
+{#                                    <span>Dossiers en cours</span>#}
+{#                                </a>#}{#<a href="{{ path('app_logout') }}" class="text-success nav-link"> Se déconnecter</a>#}
+                            <li class="header-menu">
+                                <span>Gestion des Champs</span>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="far fa-plus-square"> </i>
+                                    <span>Ajouter un champ</span>
+                                </a>
+                            </li> <li class="header-menu">
+                                <span>Se déconnecter</span>
+                            <a href="{{ path('app_logout') }}">
+                                <i class=" fas fa-sign-out-alt"></i>
+                            </a>
+                            </li>
+                            <li>
+
+                            </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    {% endif %}
+    {% endblock %}
+    {% block body %}
+
+    {% block footer %}
+        {% include '_footer.html.twig' %}
+    {% endblock %}
+</div>
+{% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('sidebar_js') }}
+    {% endblock %}

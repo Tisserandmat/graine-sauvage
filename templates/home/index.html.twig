@@ -1,12 +1,10 @@
-{% extends 'layout.html.twig' %}
-
-{% block title %}Graine Sauvage{% endblock %}
-
-{% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
+{% extends '_layout.html.twig' %}
+{% block title %}
+    {{ parent() }}
 {% endblock %}
-
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
 {% block body %}
-
-
+    <div class="page-content"></div>
 {% endblock %}

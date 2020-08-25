@@ -1,0 +1,60 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}
+    {% block title %}Administration plantes{% endblock %}
+{% endblock %}
+
+{% block body %}
+<div class="container page-content text-center mt-5 mb-b">
+    <div class="row mb-5 mt5 justify-content-center text-center">
+        <h1 class="mb-5 mt-5">Plante {{ vegetable.name }}</h1>
+    </div>
+    <div class="row mb-5 mt5">
+        <table class="table table-striped table-responsive-sm  col-4-sm table-hover mt-5 mb-5">
+            <tbody>
+            <tr>
+                <th class="text-info align-middle">Name</th>
+                <td class="align-middle">{{ vegetable.name }}</td>
+            </tr>
+            <tr>
+                <th class="text-info align-middle">Description</th>
+                <td class="align-middle">{{ vegetable.description }}</td>
+            </tr>
+            <tr>
+                <th class="text-info align-middle">LatinName</th>
+                <td class="align-middle">{{ vegetable.latinName }}</td>
+            </tr>
+            <tr>
+                <th class="text-info align-middle">Family</th>
+                <td class="align-middle">{{ vegetable.family }}</td>
+            </tr>
+            <tr>
+                <th class="text-info align-middle">Type</th>
+                <td>{{ vegetable.type }}</td>
+            </tr>
+            <tr>
+                <th class="text-info align-middle">Size</th>
+                <td class="align-middle">{{ vegetable.size }}</td>
+            </tr>
+            <tr>
+                <th class="text-info align-middle">HarvestMonth</th>
+                <td class="align-middle">{{ vegetable.harvestMonth }}</td>
+            </tr>
+            <tr>
+                <th class="text-info align-middle">SoilType</th>
+                <td class="align-middle">{{ vegetable.soilType }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row justify-content-between mb-5 mt5">
+    <a class="btn btn-primary-color" href="{{ path('vegetable_index') }}"><i
+                class="fas fa-arrow-left"></i> Retour a l'index</a>
+
+    <a class=" btn btn-primary-color" href="{{ path('vegetable_edit', {'id': vegetable.id}) }}"> <i
+                class="fas fa-edit"></i> Modifier</a>
+
+    {{ include('admin/vegetable/_delete_form.html.twig') }}
+    </div>
+</div>
+    {% endblock %}

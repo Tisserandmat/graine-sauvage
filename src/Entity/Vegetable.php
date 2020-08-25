@@ -208,6 +208,13 @@ class Vegetable
     public function setSeed(?Seed $seed): self
     {
         $this->seed = $seed;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newVegetable = null === $seed ? null : $this;
+        if ($seed->getVegetable() !== $newVegetable) {
+            $seed->setVegetable($newVegetable);
+        }
+
         return $this;
     }
 }
