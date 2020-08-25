@@ -106,7 +106,6 @@ class SeedController extends AbstractController
             $entityManager->remove($seed);
             $entityManager->flush();
             $this->addFlash('danger', 'La graine à bien été supprimer.');
-
         }
 
         return $this->redirectToRoute('seed_index');

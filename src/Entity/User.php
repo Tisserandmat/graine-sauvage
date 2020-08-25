@@ -23,6 +23,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     *  * @Assert\Email(
+     *     message = "Le mail '{{ value }}' n'est pas valide."
+     * )
      */
     private $email;
 
@@ -34,32 +37,59 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Le champ ne doit pas être vide")
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le champ prénom* saisie est trop long, il ne devrait pas dépasser {{ limit }} caractères",
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champ ne doit pas être vide")
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le champ nom* saisie est trop long, il ne devrait pas dépasser {{ limit }} caractères",
+     * )
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
+     *  @Assert\NotBlank(message="Le champ ne doit pas être vide")
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le champ nom saisie est trop long, il ne devrait pas dépasser {{ limit }} caractères",
+     * )
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champ ne doit pas être vide")
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le champ login saisie est trop long, il ne devrait pas dépasser {{ limit }} caractères",
+     * )
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le champ adresse* saisie est trop long, il ne devrait pas dépasser {{ limit }} caractères",
+     * )
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le champ ville* saisie est trop long, il ne devrait pas dépasser {{ limit }} caractères",
+     * )
      */
     private $city;
 
@@ -75,6 +105,10 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=15, nullable=true)
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le champ telephone* saisie est trop long, il ne devrait pas dépasser {{ limit }} caractères",
+     * )
      */
     private $phoneNumber;
 
