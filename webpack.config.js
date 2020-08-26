@@ -23,6 +23,7 @@ Encore
 
 
     .addStyleEntry('login', './assets/scss/login.scss')
+    .addStyleEntry('home', './assets/scss/home.scss')
     .addStyleEntry('navbar', './assets/scss/navbar.scss')
     .addStyleEntry('admin', './assets/scss/admin.scss')
     .addStyleEntry('sidebar', './assets/scss/sidebar.scss')

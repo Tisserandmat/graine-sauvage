@@ -4,6 +4,7 @@ nav {
   margin: 0;
   padding: 0;
   font-family: $font-text;
+  opacity: .4;
 }
 
 .dropdown-menu{
@@ -15,7 +16,7 @@ nav {
 }
 
 .dropdown-item{
-  color: $light-color;
+  //color: $light-color;
 
   &:hover{
     //background-color: $primary-darker;
@@ -28,6 +29,7 @@ nav {
   padding: 0;
   background-color: $light-color;
   box-shadow: 1px 1px 3px #BEA058;
+  opacity: .4;
 }
 
 .navbar-nav{
