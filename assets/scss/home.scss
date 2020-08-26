@@ -1,0 +1,35 @@
+@import "vars";
+
+.homeTop {
+  height: 100vh;
+  width: 100%;
+  background: rgba(50, 50, 50, 0.2);
+}
+
+.homePicture {
+  object-position: center;
+  object-fit: cover;
+}
+
+.homeTxt {
+  width: 80%;
+  padding-top: 80px;
+}
+
+.homePicture{
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  right: 0;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  z-index: -1;
+  opacity: 1;
+}
+
+h1{
+  font-size: $size-title;
+}
+
