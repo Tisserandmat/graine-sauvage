@@ -5,12 +5,12 @@
         <div class="row justify-content-center mb-5 mt-5">
             <h1 class="text-center ">Modification {{ seed.name }} </h1>
         </div>
-        <div class="row mt-5 mb-5"> {% form_theme form 'bootstrap_4_layout.html.twig' %}</div>
+        <div class="row mt-5 mb-5"> </div>
 
         {{ include('admin/seed/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-        <div class="row justify-content-between mt-5">
+        <div class="row justify-content-between m-2 mt-5">
             <button class="btn btn-primary-color"><a href="{{ path('seed_index') }} " class="text-light"><i
-                            class="fas fa-arrow-left"></i> Revenir à la liste</a></button>
+                            class="fas fa-arrow-left"></i> Revenir à la l'index</a></button>
             {{ include('admin/seed/_delete_form.html.twig') }}
         </div>
 

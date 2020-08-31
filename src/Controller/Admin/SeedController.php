@@ -45,7 +45,7 @@ class SeedController extends AbstractController
             $entityManager->persist($seed);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Une nouvelle graine a été crée.');
+            $this->addFlash('success', 'Une nouvelle graine a été créée.');
 
             return $this->redirectToRoute('seed_index');
         }
@@ -82,7 +82,7 @@ class SeedController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'La graine a bien été modifier.');
+            $this->addFlash('success', 'La graine a bien été modifiée.');
 
             return $this->redirectToRoute('seed_index');
         }
@@ -105,7 +105,7 @@ class SeedController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($seed);
             $entityManager->flush();
-            $this->addFlash('danger', 'La graine à bien été supprimer.');
+            $this->addFlash('danger', 'La graine à bien été supprimée.');
         }
 
         return $this->redirectToRoute('seed_index');

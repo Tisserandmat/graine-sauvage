@@ -9,11 +9,10 @@
     {% endblock %}
 </head>
 <body>
+
 {% block flash %}{% include '_flash.html.twig' %}{% endblock %}
 
 {% block navbar %}{% include '_navbar.html.twig' %}{% block dashboard %}{% endblock %}{% endblock %}
-
-
 
 {% block body %}{% endblock %}
 

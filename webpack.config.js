@@ -27,6 +27,7 @@ Encore
     .addStyleEntry('navbar', './assets/scss/navbar.scss')
     .addStyleEntry('admin', './assets/scss/admin.scss')
     .addStyleEntry('sidebar', './assets/scss/sidebar.scss')
+    .addStyleEntry('seed', './assets/scss/seed.scss')
 
 
     // .addEntry('page2', './assets/js/page2.js')
