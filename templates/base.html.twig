@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Acceuil{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+
+{% block flash %}{% include '_flash.html.twig' %}{% endblock %}
+
+{% block navbar %}{% include '_navbar.html.twig' %}{% block dashboard %}{% endblock %}{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+<script src="https://kit.fontawesome.com/bfe9f51c30.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends '_layout.html.twig' %}
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+{% block body %}
+    <div class="page-content d-flex p-0 homeTop ">
+        <div class="col ml-3 p-0 row">
+            <img class="homePicture" src="images/home.jpeg" alt="image principale">
+            <div class="homeTxt d-flex text-center w-100 p-0 h-50 flex-column justify-content-around align-items-center align-self-center">
+{#                <h1 > </h1>#}
+            </div>
+        </div>
+    </div>
+{% endblock %}

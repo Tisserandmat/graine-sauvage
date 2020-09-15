@@ -1,0 +1,38 @@
+fos_ck_editor:
+  base_path: "build/ckeditor"
+  js_path:   "build/ckeditor/ckeditor.js"
+  configs:
+    my_config:
+      toolbar: editor
+  toolbars:
+    configs:
+      editor:
+        -
+          - Bold
+          - Italic
+          - Underline
+          - Strike
+          - -
+          - RemoveFormat
+          - -
+          - NumberedList
+          - BulletedList
+          - -
+          - Outdent
+          - Indent
+          - -
+          - Blockquote
+          - CreateDiv
+          - JustifyLeft
+          - JustifyCenter
+          - JustifyRight
+          - JustifyBlock
+          - -
+          - Link
+          - Unlink
+          - -
+          - HorizontalRule
+        - /
+        -
+          - Styles
+          - Format

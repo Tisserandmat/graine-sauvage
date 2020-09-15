@@ -1,0 +1,75 @@
+//@import "vars";
+//@import url(https://fonts.googleapis.com/css?family=Lato);
+//
+//@import 'vars.scss';
+//.menu {
+//  position: fixed;
+//  display: inline-block;
+//  text-align: center;
+//  height: 100vh;
+//  background-color: $light-green
+//}
+//.menu-wrapper {
+//  display: flex;
+//  flex-direction: column;
+//  height: 100%;
+//  justify-content: space-between;
+//}
+//.menu-wrapper .fa-arrow-up,
+//.menu-wrapper .fa-book-open,
+//.menu-wrapper .fa-php,
+//.menu-wrapper .fa-briefcase,
+//.menu-wrapper .fa-link,
+//.menu-wrapper .fa-user-lock,
+//.menu-wrapper .fa-cogs,
+//.menu-wrapper .fa-sign-out-alt {
+//  font-size: 1.25rem;
+//  color: white;
+//}
+//.menu-wrapper > * {
+//  display: inline-block;
+//}
+//.menu-wrapper ul {
+//  padding: 0;
+//  margin: 0 0 auto;
+//  a {
+//    position: relative;
+//    display: inline-block;
+//    width: 100%;
+//    padding-top: 1rem;
+//    padding-bottom: 1rem;
+//    background-color: $light-green;
+//    z-index: 2;
+//  }
+//  li {
+//    position: relative;
+//    list-style-type: none;
+//    margin-top: 10px;
+//    margin-bottom: 10px;
+//  }
+//}
+//.menu .link-hover {
+//  position: absolute;
+//  width: max-content;
+//  background-color: $primary;
+//  color: white;
+//  margin-top: 10px;
+//  margin-bottom: 10px;
+//  padding: .5rem;
+//  //border-radius: $radius-light-right;
+//  right: 0;
+//  z-index: 1;
+//  transition: all .3s ease;
+//}
+//.menu-wrapper li:hover .link-hover {
+//  //box-shadow: $shadow-light;
+//  transform: translateX(100%);
+//}
+//.menu-wrapper .login {
+//  font-size: 3rem;
+//  padding: 1rem;
+//  background-color: $primary;
+//  color: $light;
+//}
+//
+//@import "~bootstrap/scss/bootstrap";

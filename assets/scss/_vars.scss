@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
+
+$primary-color : #005668;;
+$light-green : #5a974c;
+$light-color: #ffffff;
+$sun-color: #FF9505;
+
+$font-title: 'Indie Flower', cursive;
+$font-text: 'Oxygen', sans-serif;
+
+$size-text: 16px;
+$size-footer-text: 10px;
+$size-navbar-text: 18px;
+$size-intermediate :calc(2.5 * var($size-text));
+$size-title: calc(5 * var($size-text));
+
+$theme-colors: (
+        "danger": #FF4136,
+        "success": $light-green,
+        "info": #FF9505,
+        "primary-color": $primary-color
+);
+
+$radius-light-right: 0px 3px 3px 0px;
+
