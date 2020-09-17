@@ -1,0 +1,41 @@
+@import "sidebar";
+@import "vars";
+@import "~bootstrap/scss/bootstrap";
+
+h1{
+  font-family: $font-title;
+}
+
+.navbar{
+  border-bottom: 1px solid $sun-color;
+  z-index: 2;
+}
+
+.navbar-brand{
+  font-family: $font-title;
+  font-size: $size-title;
+}
+
+
+footer {
+  bottom: 1;
+  width: 100%;
+  /*Set the fixed height of the footer here*/
+  height: 40%;
+  position: relative;
+}
+
+
+div.page-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.custom-file {
+  position: unset;
+}
+.custom-file-input {
+  opacity: 100;
+}

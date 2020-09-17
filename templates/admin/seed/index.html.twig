@@ -1,0 +1,56 @@
+{% extends '_layout.html.twig' %}
+{% block title %}Administration graines{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('indexAdmin') }}
+{% endblock %}
+{% block body %}
+    <div class="container page-content mt-4">
+        <h1 class="text-center mt-5 mb-5">Liste des graines</h1>
+
+        <div class="row justify-content-center mb-5">
+            <button class="btn btn-primary-color"><a href="{{ path('seed_new') }}" class="text-light"><i
+                            class="fas fa-plus"></i> Ajouter</a></button>
+        </div>
+
+        <table class="table table-striped table-responsive-md table-hover mt-5 ">
+            <thead class="bg-success">
+            <tr class="text-light text-center">
+                <th>Images</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Semis</th>
+                <th>Prix</th>
+                <th>Actions</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for seed in seeds %}
+                <tr class="justify-content-center text-center">
+                    <td><img src="{{ vich_uploader_asset(seed, 'imageFile') }}" alt="{{ seed.name }}"/></td>
+                    <td class="align-middle">{{ seed.name }}</td>
+                    <td class="align-middle">{{ seed.description|nl2br }}</td>
+                    <td class="align-middle">{{ seed.seeding }}</td>
+                    <td class="align-middle">{{ seed.price }}</td>
+                    <td class="align-middle flex-column d-flex align-items-center">
+                        <a href="{{ path('seed_edit', {'id': seed.id}) }}" class="btn btn-success"><i
+                                    class="text-light fas fa-pen"></i> </a>
+                        <a href="{{ path('seed_show', {'id': seed.id}) }}" class="btn btn-info mt-2"><i
+                                    class=" text-light fa fa-eye"></i></a>
+
+                    </td>
+
+                </tr>
+
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
+

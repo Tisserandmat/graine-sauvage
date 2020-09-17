@@ -1,0 +1,67 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+ {% block stylesheets %}
+     {{ parent() }}
+     {{ encore_entry_link_tags('login') }}
+ {% endblock %}
+
+{% block body %}
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+    <div class="container">
+        <div class="row page-content text-center justify-content-center">
+            <h1 class="h3 mb-5 font-weight-normal mt-5">Mon espace personnel</h1>
+        </div>
+        <div class="row justify-content-center mb-5">
+
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <!-- Login Form -->
+                    <form method="post">
+
+                        <label for="login">Identifiant</label>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary-color"><i class="fas fa-user text-info"></i></span>
+                            </div>
+                            <input value="{{ last_username }}" name="login" id="login" class="form-control" required placeholder="Votre identifiant" autofocus>
+                        </div>
+
+                        <label for="inputPassword" class="mt-2">Mot de passe</label>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary-color"><i class="fas fa-key text-info"></i></span>
+                            </div>
+                            <input type="password" name="password" id="inputPassword" placeholder="Mot de passe" class="form-control" required>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary-color mt-3 mb-3" type="submit">
+                            Connexion
+                        </button>
+
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}">
+
+                    </form>
+
+                    <!-- Remind Passowrd -->
+                    <div id="formFooter">
+                        <div class="row justify-content-center flex-column text-center">
+                            <p><a href="{{ path('app_register') }}">Crée un compte</a></p> <br/>
+                            <p><a href="">Mot de passe oublié ?</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

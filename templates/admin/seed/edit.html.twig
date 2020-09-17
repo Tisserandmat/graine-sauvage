@@ -1,0 +1,24 @@
+{% extends '_layout.html.twig' %}
+{% block title %}Administration graines{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('indexAdmin') }}
+{% endblock %}
+{% block body %}
+    <div class="container page-content">
+        <div class="row justify-content-center mb-5 mt-5">
+            <h1 class="text-center ">Modification {{ seed.name }} </h1>
+        </div>
+        <div class="row mt-5 mb-5"> </div>
+
+        {{ include('admin/seed/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        <div class="row justify-content-between m-2 mt-5">
+            <button class="btn btn-primary-color"><a href="{{ path('seed_index') }} " class="text-light"><i
+                            class="fas fa-arrow-left"></i> Revenir à la l'index</a></button>
+            {{ include('admin/seed/_delete_form.html.twig') }}
+        </div>
+
+
+
+    </div>
+{% endblock %}
