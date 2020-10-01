@@ -113,7 +113,7 @@ class Vegetable
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
      * @var string|null
      */
@@ -125,6 +125,11 @@ class Vegetable
      * @var \DateTimeInterface|null
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $season;
 
     public function getId(): ?int
     {
@@ -278,6 +283,18 @@ class Vegetable
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+
+    public function getSeason(): ?string
+    {
+        return $this->season;
+    }
+
+    public function setSeason(?string $season): self
+    {
+        $this->season = $season;
+
+        return $this;
     }
 
 }

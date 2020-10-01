@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg w-100 navbar bg-light position-fixed">
+<nav class="navbar navbar-expand-lg w-100 navbar bg-success position-fixed">
     <img class="mr-3 rounded" height="40" src="{{ asset('images/logo.png') }}" alt="logo">
-    <a class="navbar-brand text-success mr-3"  href="{{ path('home') }}">Graine <span class="text-info">sauvage</span></a>
+    <a class="navbar-brand text-primary-color mr-3"  href="{{ path('home') }}">Graine <span class="text-info">sauvage</span></a>
     <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <i class="far fa-caret-square-down btn btn-success"></i>
@@ -8,25 +8,25 @@
     <div class="collapse navbar-collapse ml-3 justify-content-between" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-success" href="#" id="navbarDropdownMenuLink" role="button"
+                <a class="nav-link dropdown-toggle text-primary-color" href="#" id="navbarDropdownMenuLink" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Jardinage
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-success" href="">Légumes et potager</a>
-                    <a class="dropdown-item text-success" href="">Arbres fruitier</a>
-                    <a class="dropdown-item text-success" href="">Légumes de saison</a>
+                    <a class="dropdown-item text-primary-color" href="">Légumes et potager</a>
+                    <a class="dropdown-item text-primary-color" href="">Arbres fruitier</a>
+                    <a class="dropdown-item text-primary-color" href="">Légumes de saison</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-success" href="#">Terrains</a>
+                <a class="nav-link text-primary-color" href="#">Terrains</a>
             </li>
         </ul>
         <ul class="navbar-nav">
             {% if app.user %}
 
             {% else %}
-                <a href="{{ path('app_login') }}" class="text-success nav-link"> Connexion</a>
+                <a href="{{ path('app_login') }}" class="text-primary-color nav-link"> Connexion</a>
             {% endif %}
         </ul>
     </div>

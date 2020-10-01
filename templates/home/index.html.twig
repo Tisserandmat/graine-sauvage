@@ -7,12 +7,55 @@
     {{ encore_entry_link_tags('home') }}
 {% endblock %}
 {% block body %}
-    <div class="page-content d-flex p-0 homeTop ">
+
+    <div class="container-fluid page-content d-flex p-0 homeTop ">
+
         <div class="col ml-3 p-0 row">
             <img class="homePicture" src="images/home.jpeg" alt="image principale">
             <div class="homeTxt d-flex text-center w-100 p-0 h-50 flex-column justify-content-around align-items-center align-self-center">
-{#                <h1 > </h1>#}
+                <h1 class="ml5 text-light title-h1">
+                    <span class="text-wrapper">
+                        <span class="line line1"></span>
+                        <span class="letters letters-left">Graine</span>
+                        <span class="letters letters-right">Sauvage</span>
+                        <span class="line line2"></span>
+                    </span>
+                </h1>
+
             </div>
         </div>
     </div>
+
+    {% if vegetables is not null %}
+    <div class="container-fluid homeTop bg-light">
+
+        <div class="row justify-content-center mt-5 mb-5">
+            <h2 class="text-center">Les légumes du mois</h2>
+        </div>
+
+        <div class="row justify-content-around">
+            {% for vegetable in vegetables %}
+                <div class="card col-2 text-break p-0">
+                    <img class="card-img .col p-0"
+                         src="{% if vegetable.imageName is  empty %}images/sans-image.jpg"{% else %}{{ vich_uploader_asset(vegetable, 'imageFile') }}
+                            {% endif %} alt="{{ vegetable.name }}"/>
+                    <div class="card-body">
+                        <h5 class="card-title text-break ">{{ vegetable.name }}</h5>
+                        <p class="card-text text-break text-truncate">{{ vegetable.description|raw }}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-break ">Récolte : {{ vegetable.harvestMonth }}</li>
+                    </ul>
+                    <div class="card-body col">
+                        <a href="#" class="btn btn-primary-color">Détails</a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('home_js') }}
 {% endblock %}

@@ -19,6 +19,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('sidebar_js', './assets/js/sidebar.js')
+    .addEntry('home_js', './assets/js/home.js')
 
 
     .addStyleEntry('login', './assets/scss/login.scss')
