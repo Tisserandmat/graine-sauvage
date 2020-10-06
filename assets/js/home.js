@@ -1,3 +1,4 @@
+const $ = require('jquery');
 anime.timeline({loop: false})
     .add({
         targets: '.ml5 .line',

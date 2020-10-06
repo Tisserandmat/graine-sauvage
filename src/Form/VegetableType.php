@@ -35,9 +35,9 @@ class VegetableType extends AbstractType
                     'placeholder' => 'Solanum lycopersicum'
                 ]])
             ->add('family', TextareaType::class, [
-                'label' => 'Description',
+                'label' => 'famille',
                 'attr' => [
-                    'placeholder' => 'Description de la plante'
+                    'placeholder' => 'Famille du légume'
                 ]])
             ->add('type', TextareaType::class, [
                 'label' => 'type',
