@@ -8,10 +8,11 @@
 {% endblock %}
 {% block body %}
 
-    <div class="container-fluid page-content d-flex p-0 homeTop ">
+    <div class="container-fluid p-0">
 
-        <div class="col ml-3 p-0 row">
+        <div class="col ml-3 p-0 page-content d-flex p-0 homeTop row">
             <img class="homePicture" src="images/home.jpeg" alt="image principale">
+
             <div class="homeTxt d-flex text-center w-100 p-0 h-50 flex-column justify-content-around align-items-center align-self-center">
                 <h1 class="ml5 text-light title-h1">
                     <span class="text-wrapper">
@@ -21,41 +22,39 @@
                         <span class="line line2"></span>
                     </span>
                 </h1>
-
             </div>
+
         </div>
-    </div>
+        {% if vegetables is not null %}
 
-    {% if vegetables is not null %}
-    <div class="container-fluid homeTop bg-light">
+        <div class="container-fluid background-card">
+{#            <img class="homePicture" src="images/bck-v1.jpg" alt="image principale">#}
+            <div class="row justify-content-center pt-5">
+            <h2 class="text-center">Les légumes du mois</h2></div>
 
-        <div class="row justify-content-center mt-5 mb-5">
-            <h2 class="text-center">Les légumes du mois</h2>
-        </div>
 
-        <div class="row justify-content-around">
+        <div class="row mt-5 justify-content-around mb-5">
             {% for vegetable in vegetables %}
-                <div class="card col-2 text-break p-0">
-                    <img class="card-img .col p-0"
-                         src="{% if vegetable.imageName is  empty %}images/sans-image.jpg"{% else %}{{ vich_uploader_asset(vegetable, 'imageFile') }}
-                            {% endif %} alt="{{ vegetable.name }}"/>
-                    <div class="card-body">
-                        <h5 class="card-title text-break ">{{ vegetable.name }}</h5>
-                        <p class="card-text text-break text-truncate">{{ vegetable.description|raw }}</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-break ">Récolte : {{ vegetable.harvestMonth }}</li>
-                    </ul>
-                    <div class="card-body col">
-                        <a href="#" class="btn btn-primary-color">Détails</a>
+                <div class="grid__item">
+                    <div class="card offset-1">
+                        <img class="col p-0" alt="{{ vegetable.name }}"
+                                           src="{% if vegetable.imageName is  empty %}images/sans-image.jpg"{% else %}{{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
+                        />
+                        <div class="card__content p-1">
+                            <h1 class="card__header text-center text-break">{{ vegetable.name }}</h1>
+                            <p class="card__text text-center text-truncate text-break">{{ vegetable.description|raw }}</p>
+                            <button class="btn btn-primary-color justify-content-center text-center"><a href="" class="text-light">Détails</a></button>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
             {% endif %}
         </div>
     </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('home_js') }}
+    {{ encore_entry_script_tags('sidebar_js') }}
 {% endblock %}
