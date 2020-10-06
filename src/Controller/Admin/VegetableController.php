@@ -15,6 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class VegetableController extends AbstractController
 {
+    const SEASONS = [
+        "Printemps" => [ "Avril" => "Avril", "Mai" =>"Mai", "Juin" => "Juin"],
+        "Été" => [ "Juillet", "Août", "Septembre"],
+        "Automne" => [ "Octobre", "Novembre", "Decembre"],
+        "Hiver" => [ "Janvier", "Février", "Mars" => "Mars"]
+    ];
+
     /**
      * @Route("/", name="vegetable_index", methods={"GET"})
      * @param VegeteableRepository $vegeteableRepository
@@ -40,8 +47,24 @@ class VegetableController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Printemps"])) {
+                $vegetable->setSeason("Printemps");
+            }
+            if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Été"])) {
+                $vegetable->setSeason("Été");
+            }
+            if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Automne"])) {
+                $vegetable->setSeason("Automne");
+            }
+            if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Hiver"])) {
+                $vegetable->setSeason("Hiver");
+            }
+
             $entityManager->persist($vegetable);
             $entityManager->flush();
+
+            dd($vegetable);
 
             $this->addFlash('success', 'Un nouveau légume a été créer.');
 
@@ -79,6 +102,19 @@ class VegetableController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Printemps"])) {
+                $vegetable->setSeason("Printemps");
+            }
+            if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Été"])) {
+                $vegetable->setSeason("Été");
+            }
+            if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Automne"])) {
+                $vegetable->setSeason("Automne");
+            }
+            if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Hiver"])) {
+                $vegetable->setSeason("Hiver");
+            }
+
             $this->addFlash('success', 'Le légume a bien été modifier.');
 
             return $this->redirectToRoute('vegetable_index');
@@ -98,7 +134,7 @@ class VegetableController extends AbstractController
      */
     public function delete(Request $request, Vegetable $vegetable): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$vegetable->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $vegetable->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($vegetable);
             $entityManager->flush();
