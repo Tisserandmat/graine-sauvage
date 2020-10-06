@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Vegetable;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -14,8 +15,13 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class VegetableType extends AbstractType
 {
+    const MONTHS = ['Janvier'=>'Janv', 'Février'=>'Feb', 'Mars'=>'Mar','Avril' =>'Apr', 'Mai'=>'May',
+        'Juin'=>'Jun', 'Juillet'=>'Jul','Août' =>'Aug', 'Septembre'=>'Sep',
+        'Octobre'=>'Oct', 'Novembre'=>'Nov', 'Decembre'=>'Dec'];
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom',
@@ -29,9 +35,9 @@ class VegetableType extends AbstractType
                     'placeholder' => 'Solanum lycopersicum'
                 ]])
             ->add('family', TextareaType::class, [
-                'label' => 'Description',
+                'label' => 'famille',
                 'attr' => [
-                    'placeholder' => 'Description de la plante'
+                    'placeholder' => 'Famille du légume'
                 ]])
             ->add('type', TextareaType::class, [
                 'label' => 'type',
@@ -43,11 +49,10 @@ class VegetableType extends AbstractType
                 'attr' => [
                     'placeholder' => '18'
                 ]])
-            ->add('harvestMonth', TextType::class, [
+            ->add('harvestMonth', ChoiceType::class, [
+                'choices' => self::MONTHS,
                 'label' => 'Moi de récolte',
-                'attr' => [
-                    'placeholder' => 'Mars'
-                ]])
+            ])
             ->add('soilType', TextType::class, [
                 'label' => 'Type de sol',
                 'attr' => [

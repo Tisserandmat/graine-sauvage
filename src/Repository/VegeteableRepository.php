@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Vegetable;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,22 +20,29 @@ class VegeteableRepository extends ServiceEntityRepository
         parent::__construct($registry, Vegetable::class);
     }
 
-    // /**
-    //  * @return Vegeteable[] Returns an array of Vegeteable objects
-    //  */
-    /*
-    public function findByExampleField($value)
+
+    public function getRandomVegeteableMonth()
     {
-        return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $date = new DateTime();
+        $MonthDate = $date->format('M');
+        $limit = 3;
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('v')
+            ->from(Vegetable::class, 'v')
+            ->where('v.harvestMonth LIKE :month ')
+            ->setParameter('month', $MonthDate)
+            ->orderBy('RAND()')
+            ->setMaxResults($limit);
+
+        return $qb->getQuery()->getResult();
     }
+
+     /**
+    * @return Vegeteable[] Returns an array of Vegeteable objects
     */
+
+
+
 
     /*
     public function findOneBySomeField($value): ?Vegeteable
