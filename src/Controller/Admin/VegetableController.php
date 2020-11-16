@@ -64,7 +64,7 @@ class VegetableController extends AbstractController
             $entityManager->persist($vegetable);
             $entityManager->flush();
 
-            dd($vegetable);
+
 
             $this->addFlash('success', 'Un nouveau légume a été créer.');
 

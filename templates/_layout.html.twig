@@ -8,9 +8,8 @@
 {% endblock %}
 
 {% block dashboard %}
-
-<div class="row page-wrapper   chiller-theme">
-    {% if app.user %}
+{% if app.user %}
+<div class="row page-wrapper chiller-theme">
         <div id="sidebar" class=" bg-primary-color sidebar-wrapper">
             <div class="sidebar-content ">
                 <div class="sidebar-brand">
@@ -110,11 +109,6 @@
                                     <i class="far fa-plus-square"> </i>
                                     <span>Ajouter un champ</span>
                                 </a>
-                            </li> <li class="header-menu">
-                                <span>Se déconnecter</span>
-                            <a href="{{ path('app_logout') }}">
-                                <i class=" fas fa-sign-out-alt"></i>
-                            </a>
                             </li>
                             <li>
 

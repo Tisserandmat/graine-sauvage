@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg w-100 navbar btn-light position-fixed">
+<nav class="navbar navbar-expand-lg w-100  navbar bg-light position-fixed">
     <img class="mr-3 rounded" height="40" src="{{ asset('images/logo.png') }}" alt="logo">
     <a class="navbar-brand text-primary-color mr-3"  href="{{ path('home') }}">Graine <span class="text-info">sauvage</span></a>
     <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -24,7 +24,12 @@
         </ul>
         <ul class="navbar-nav">
             {% if app.user %}
-
+                <li class="header-menu">
+                    <span>Se déconnecter</span>
+                    <a href="{{ path('app_logout') }}">
+                        <i class=" fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
             {% else %}
                 <a href="{{ path('app_login') }}" class="text-primary-color nav-link"> Connexion</a>
             {% endif %}
