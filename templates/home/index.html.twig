@@ -10,48 +10,64 @@
 
 
 
-        <div class="w-100  d-flex homeTop ">
-            <img class="homePicture" src="images/seed.jpg" alt="image principale">
+    <div class="w-100  d-flex homeTop ">
+        <img class="homePicture" src="images/seed.jpg" alt="image principale">
 
-            <div class="homeTxt d-flex  text-center w-100 p-0  flex-column justify-content-around align-items-center align-self-center">
-                <h1 class="ml5 text-light title-h1">
+        <div class="homeTxt d-flex  text-center w-100 p-0  flex-column justify-content-around align-items-center align-self-center">
+            <h1 class="ml5 text-light title-h1">
                     <span class="text-wrapper">
                         <span class="line line1"></span>
                         <span class="letters letters-left">Graine</span>
                         <span class="letters letters-right">Sauvage</span>
                         <span class="line line2"></span>
                     </span>
-                </h1>
-            </div>
-
+            </h1>
         </div>
+
+    </div>
     <div class="container-fluid">
         {% if vegetables is not null %}
 
         <div class="container-fluid background-card">
-            <img class="homePicture" src="images/vegetable6.jpg" alt="image principale">
+{#            <img class="homePicture" src="images/vegetable6.jpg" alt="image principale">#}
             <div class="row justify-content-center pt-5">
-            <h2 class="text-center">Les légumes du mois</h2>
+                <h2 class="text-center">Les légumes du mois</h2>
             </div>
 
 
-        <div class="row mt-5 justify-content-around ">
-            {% for vegetable in vegetables %}
-                <div class="col-3">
-                <div class="grid__item ">
-                    <div class="card offset-1">
-                        <img class="col p-0" alt="{{ vegetable.name }}"
-                                           src="{% if vegetable.imageName is  empty %}images/sans-image.jpg"{% else %}
-                        {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
-                        />
-                        <div class="card__content col p-2">
-                            <h1 class="card__header text-center text-break ">{{ vegetable.name }}</h1>
-                            <p class="card__text text-center text-truncate text-break">{{ vegetable.description|raw }}</p>
-                            <button class="btn btn-primary-color justify-content-center text-center"><a href="" class="text-light">Détails</a></button>
+            <div class="row mt-5 justify-content-around ">
+                {% for vegetable in vegetables %}
+                    <div class="blog-card">
+                        <div class="meta col">
+
+                            <img class="photo col p-0 m-0 " alt="{{ vegetable.name }}"
+                                 src="{% if vegetable.imageName is  empty %}images/sans-image.jpg"{% else %}
+                            {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
+                            />
+{#                            <ul class="details">#}
+{#                                <li class="author"><a href="#">John Doe</a></li>#}
+{#                                <li class="date">Aug. 24, 2015</li>#}
+{#                                <li class="tags">#}
+{#                                    <ul>#}
+{#                                        <li><a href="#">Learn</a></li>#}
+{#                                        <li><a href="#">Code</a></li>#}
+{#                                        <li><a href="#">HTML</a></li>#}
+{#                                        <li><a href="#">CSS</a></li>#}
+{#                                    </ul>#}
+{#                                </li>#}
+{#                            </ul>#}
+                        </div>
+                        <div class="description">
+                            <h1>{{ vegetable.name }}</h1>
+                            <h2>Opening a door to the future</h2>
+                            <p class="card-content"> {{ vegetable.description|raw }}</p>
+                            <p class="read-more">
+                                <a class="btn btn-success text-white" href="#">Voir</a>
+                            </p>
                         </div>
                     </div>
-                </div></div>
-            {% endfor %}
+                {% endfor %}
+            </div>
             {% endif %}
         </div>
     </div>
