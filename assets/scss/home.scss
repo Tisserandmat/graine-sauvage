@@ -227,12 +227,17 @@ $color_grey_dark: #a2a2a2;
       }
     }
   }
-  p {
+   p {
     position: relative;
     word-break: break-all;
+    text-overflow: "...";
+
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
     margin: 1rem 0 0;
     &:first-of-type {
-      margin-top: 1.25rem;
+      margin-top: 1rem;
       &:before {
         content: "";
         position: absolute;
