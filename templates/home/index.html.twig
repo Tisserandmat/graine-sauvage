@@ -60,7 +60,7 @@
                             <h2 class="text-break">LÉGUME</h2>
                             <p class="card-content"> {{ vegetable.description|raw }}</p>
                             <p class="read-more">
-                                <a class="btn btn-success text-white" href="#">Voir</a>
+                                <a class="btn btn-success text-white" href="{{ path('vegetable_sheet', {slug: vegetable.slug} ) }}">Voir</a>
                             </p>
                         </div>
                     </div>
