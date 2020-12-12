@@ -6,9 +6,11 @@
             <h1>Modification plante</h1>
         </div>
 
+        <div class="row justify-content-center ">{{ include('admin/vegetable/_form.html.twig', {'button_label': 'Enregistrer'}) }}</div>
 
-        {{ include('admin/vegetable/_form.html.twig', {'button_label': 'Enregistrer'}) }}
-        <div class="row justify-content-between mt-5 "><a class="btn  ml-3 btn-primary-color" href="{{ path('vegetable_index') }}">
+
+        <div class="row justify-content-between mt-5 "><a class="btn  ml-3 btn-primary-color"
+                                                          href="{{ path('vegetable_index') }}">
                 <i
                         class="fas fa-arrow-left"></i> Retour a l'index</a>
 
