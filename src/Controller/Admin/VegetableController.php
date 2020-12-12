@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Vegetable;
 use App\Form\VegetableType;
 use App\Repository\VegeteableRepository;
+use App\Services\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,16 +38,21 @@ class VegetableController extends AbstractController
     /**
      * @Route("/ajouts", name="vegetable_new", methods={"GET","POST"})
      * @param Request $request
+     * @param Slugify $slugify
      * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Slugify $slugify): Response
     {
         $vegetable = new Vegetable();
         $form = $this->createForm(VegetableType::class, $vegetable);
         $form->handleRequest($request);
 
+        $slug = $slugify->generate($vegetable->getName());
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $vegetable->setSlug($slug);
 
             if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Printemps"])) {
                 $vegetable->setSeason("Printemps");
@@ -63,7 +69,6 @@ class VegetableController extends AbstractController
 
             $entityManager->persist($vegetable);
             $entityManager->flush();
-
 
 
             $this->addFlash('success', 'Un nouveau légume a été créer.');
@@ -93,15 +98,21 @@ class VegetableController extends AbstractController
      * @Route("/{id}/edit", name="vegetable_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Vegetable $vegetable
+     * @param Slugify $slugify
      * @return Response
      */
-    public function edit(Request $request, Vegetable $vegetable): Response
+    public function edit(Request $request, Vegetable $vegetable, Slugify $slugify): Response
     {
         $form = $this->createForm(VegetableType::class, $vegetable);
         $form->handleRequest($request);
 
+        $slug = $slugify->generate($vegetable->getName());
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $vegetable->setSlug($slug);
+
             if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Printemps"])) {
                 $vegetable->setSeason("Printemps");
             }
@@ -114,7 +125,8 @@ class VegetableController extends AbstractController
             if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Hiver"])) {
                 $vegetable->setSeason("Hiver");
             }
-
+            $entityManager->persist($vegetable);
+            $entityManager->flush();
             $this->addFlash('success', 'Le légume a bien été modifier.');
 
             return $this->redirectToRoute('vegetable_index');
