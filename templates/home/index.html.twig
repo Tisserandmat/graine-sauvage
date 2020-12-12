@@ -8,14 +8,12 @@
 {% endblock %}
 {% block body %}
 
-
-
     <div class="w-100  d-flex homeTop ">
         <img class="homePicture" src="images/seed.jpg" alt="image principale">
 
-        <div class="homeTxt d-flex  text-center w-100 p-0  flex-column justify-content-around align-items-center align-self-center">
+        <div class="homeTxt d-flex title-content  text-center w-100 p-0  flex-column justify-content-around align-items-center align-self-center">
             <h1 class="ml5 text-light title-h1">
-                    <span class="text-wrapper">
+                    <span class="text-wrapper p-4 m-4">
                         <span class="line line1"></span>
                         <span class="letters letters-left">Graine</span>
                         <span class="letters letters-right">Sauvage</span>
@@ -30,12 +28,12 @@
 
         <div class="container-fluid background-card">
 {#            <img class="homePicture" src="images/vegetable6.jpg" alt="image principale">#}
-            <div class="row justify-content-center pt-5">
+            <div class="row justify-content-center ml-5 mr-5 mt-5">
                 <h2 class="text-center">Les légumes du mois</h2>
             </div>
 
 
-            <div class="row mt-5 justify-content-around ">
+            <div class="row mt-5 justify-content-around content-card p-4 m-4">
                 {% for vegetable in vegetables %}
                     <div class="blog-card">
                         <div class="meta col">
@@ -58,8 +56,8 @@
 {#                            </ul>#}
                         </div>
                         <div class="description">
-                            <h1>{{ vegetable.name }}</h1>
-                            <h2>Opening a door to the future</h2>
+                            <h1 class="text-truncate">{{ vegetable.name }}</h1>
+                            <h2 class="text-break">LÉGUME</h2>
                             <p class="card-content"> {{ vegetable.description|raw }}</p>
                             <p class="read-more">
                                 <a class="btn btn-success text-white" href="#">Voir</a>
@@ -74,7 +72,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 {% endblock %}
-{% block javascripts %}
+{% block javascripts %}{{ parent() }}
     {{ encore_entry_script_tags('home_js') }}
     {{ encore_entry_script_tags('sidebar_js') }}
 {% endblock %}

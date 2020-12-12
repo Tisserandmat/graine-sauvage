@@ -9,7 +9,8 @@
 
 {% block dashboard %}
 {% if app.user %}
-<div class="row page-wrapper chiller-theme">
+{% if is_granted('ROLE_ADMIN') %}
+<div class="row page-wrapper  chiller-theme">
         <div id="sidebar" class=" bg-primary-color sidebar-wrapper">
             <div class="sidebar-content ">
                 <div class="sidebar-brand">
@@ -119,6 +120,7 @@
             </div>
 
         </div>
+    {% endif %}
     {% endif %}
     {% endblock %}
     {% block body %}
