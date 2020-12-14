@@ -1,7 +1,21 @@
 {% extends '_layout.html.twig' %}
 
-{% block title %}Hello VegetableSheetController!{% endblock %}
-
+{% block title %} fiche {{ vegetable.name }}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('vegetableSheet') }}
+{% endblock %}
 {% block body %}
+    <div class="container page-content">
+        <div class="row justify-content-center mb-4"><h1 class="text-center ">{{ vegetable.name }}</h1></div>
+        <div class="row justify-content-around">
+            <div><img class=" photo  p-0 m-0 " alt="{{ vegetable.name }}"
+                      src="{% if vegetable.imageName is  empty %}/images/sans-image.jpg"{% else %}
+                {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
+                />
+            </div>
+            <div></div>
+        </div>
+    </div>
 
 {% endblock %}

@@ -28,6 +28,7 @@ Encore
     .addStyleEntry('admin', './assets/scss/admin.scss')
     .addStyleEntry('sidebar', './assets/scss/sidebar.scss')
     .addStyleEntry('indexAdmin', './assets/scss/indexAdmin.scss')
+    .addStyleEntry('vegetableSheet', './assets/scss/vegetableSheet.scss')
 
 
     // .addEntry('page2', './assets/js/page2.js')
