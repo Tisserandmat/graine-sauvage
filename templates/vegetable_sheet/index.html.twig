@@ -6,16 +6,53 @@
     {{ encore_entry_link_tags('vegetableSheet') }}
 {% endblock %}
 {% block body %}
-    <div class="container page-content">
-        <div class="row justify-content-center mb-4"><h1 class="text-center ">{{ vegetable.name }}</h1></div>
-        <div class="row justify-content-around">
-            <div><img class=" photo  p-0 m-0 " alt="{{ vegetable.name }}"
+    <div class="container-fluid page-content">
+        <div class="row justify-content-end  mr-2 mb-4"><h1 class="text-center rounded bg-success p-3 text-light ">Ce qu'il faut
+                savoir sur {{ vegetable.name }}</h1></div>
+    </div>
+    <div class="container">
+        <div class="row m-4 justify-content-between">
+            <div class=" mb-4 mt-4 "><img class="photo rounded col-6 p-0 m-0 " alt="{{ vegetable.name }}"
                       src="{% if vegetable.imageName is  empty %}/images/sans-image.jpg"{% else %}
                 {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
                 />
             </div>
-            <div></div>
+            <div><table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Fiche {{ vegetable.name }} </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Nom du légume :</th>
+                        <td>{{ vegetable.name }}</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Nom latin :</th>
+                        <td>{{ vegetable.latinName }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">type de légume :</th>
+                        <td>{{ vegetable.type }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Moi de récolte</th>
+                        <td>{{ vegetable.harvestMonth }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Type de sol :</th>
+                        <td>{{ vegetable.soilType }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Type de sol :</th>
+                        <td>{{ vegetable.season }}</td>
+                    </tr>
+                    </tbody>
+                </table></div>
+            <div>{{ vegetable.description|raw }}</div>
         </div>
     </div>
-
+    </div>
 {% endblock %}

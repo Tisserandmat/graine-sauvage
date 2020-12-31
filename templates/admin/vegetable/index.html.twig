@@ -13,7 +13,7 @@
                             class="fas fa-plus"></i> Ajouter</a></button>
         </div>
 
-            <table class="table table-striped table-hover mt-5">
+            <table class="table table-striped table-responsive table-hover mt-5">
                 <thead class="bg-success">
                 <tr class="text-light align-middle text-center">
                     <th class="align-middle">Images</th>
@@ -30,11 +30,14 @@
                 </thead>
                 <tbody>
                 {% for vegetable in vegetables %}
-                    <tr class="justify-content-center text-center text-break">
-                        <td><img src="{{ vich_uploader_asset(vegetable, 'imageFile') }}" alt="{{ vegetable.name }}"/>
+                    <tr class="justify-content-center text-break text-center">
+                        <td><img class="photo rounded vegetablePictures p-0 m-0 " alt="{{ vegetable.name }}"
+                                 src="{% if vegetable.imageName is  empty %}/images/sans-image.jpg"{% else %}
+                            {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
+                            />
                         </td>
                         <td class="align-middle text-break">{{ vegetable.name }}</td>
-                        <td class="align-middle text-break">{{ vegetable.description|raw }}</td>
+                        <td class="align-middle text-break desc row ">{{ vegetable.description|striptags|raw|truncate(5) }}</td>
                         <td class="align-middle text-break">{{ vegetable.latinName }}</td>
                         <td class="align-middle text-break">{{ vegetable.family }}</td>
                         <td class="align-middle text-break">{{ vegetable.type }}</td>

@@ -58,7 +58,7 @@
                         <div class="description">
                             <h1 class="text-truncate">{{ vegetable.name }}</h1>
                             <h2 class="text-break">LÉGUME</h2>
-                            <p class="card-content"> {{ vegetable.description|raw }}</p>
+                            <p class="card-content"> {{ vegetable.description|striptags|raw }}</p>
                             <p class="read-more">
                                 <a class="btn btn-success text-white" href="{{ path('vegetable_sheet', {slug: vegetable.slug} ) }}">Voir</a>
                             </p>
