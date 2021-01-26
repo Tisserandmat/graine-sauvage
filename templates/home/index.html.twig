@@ -35,7 +35,7 @@
 
             <div class="row mt-5 justify-content-around content-card p-4 m-4">
                 {% for vegetable in vegetables %}
-                    <div class="blog-card">
+                    <div class="blog-card ">
                         <div class="meta col">
 
                             <img class="photo col p-0 m-0 " alt="{{ vegetable.name }}"
@@ -58,7 +58,7 @@
                         <div class="description">
                             <h1 class="text-truncate">{{ vegetable.name }}</h1>
                             <h2 class="text-break">LÉGUME</h2>
-                            <p class="card-content"> {{ vegetable.description|raw }}</p>
+                            <p class="card-content"> {{ vegetable.description|striptags|raw }}</p>
                             <p class="read-more">
                                 <a class="btn btn-success text-white" href="{{ path('vegetable_sheet', {slug: vegetable.slug} ) }}">Voir</a>
                             </p>

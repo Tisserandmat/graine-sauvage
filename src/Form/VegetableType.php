@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class VegetableType extends AbstractType
 {
-    const MONTHS = ['Janvier'=>'Janv', 'Février'=>'Feb', 'Mars'=>'Mar','Avril' =>'Apr', 'Mai'=>'May',
+    const MONTHS = ['Janvier'=>'Jan', 'Février'=>'Feb', 'Mars'=>'Mar','Avril' =>'Apr', 'Mai'=>'May',
         'Juin'=>'Jun', 'Juillet'=>'Jul','Août' =>'Aug', 'Septembre'=>'Sep',
         'Octobre'=>'Oct', 'Novembre'=>'Nov', 'Decembre'=>'Dec'];
 

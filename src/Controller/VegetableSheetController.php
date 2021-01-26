@@ -17,7 +17,7 @@ class VegetableSheetController extends AbstractController
     {
 
         return $this->render('vegetable_sheet/index.html.twig', [
-            'vegetanle' => $vegetable,
+            'vegetable' => $vegetable,
         ]);
     }
 }
