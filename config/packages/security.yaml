@@ -1,4 +1,8 @@
 security:
+    role_hierarchy:
+        ROLE_CLIENT: ROLE_USER
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
     encoders:
         App\Entity\User:
             algorithm: auto
@@ -37,7 +41,3 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-
-    role_hierarchy:
-        ROLE_USER: ROLE_USER
-        ROLE_ADMINISTRATEUR: ROLE_ADMIN

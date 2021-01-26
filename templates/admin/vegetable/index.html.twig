@@ -31,13 +31,13 @@
                 <tbody>
                 {% for vegetable in vegetables %}
                     <tr class="justify-content-center text-break text-center">
-                        <td><img class="photo rounded vegetablePictures p-0 m-0 " alt="{{ vegetable.name }}"
+                        <td><img class="photo rounded vegetablePictures p-0 mt-0 " alt="{{ vegetable.name }}"
                                  src="{% if vegetable.imageName is  empty %}/images/sans-image.jpg"{% else %}
                             {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
                             />
                         </td>
                         <td class="align-middle text-break">{{ vegetable.name }}</td>
-                        <td class="align-middle text-break desc row ">{{ vegetable.description|striptags|raw|truncate(5) }}</td>
+                        <td class="align-middle text-break desc "><p></p>{{ vegetable.description|striptags|raw }}</td>
                         <td class="align-middle text-break">{{ vegetable.latinName }}</td>
                         <td class="align-middle text-break">{{ vegetable.family }}</td>
                         <td class="align-middle text-break">{{ vegetable.type }}</td>

@@ -3,8 +3,10 @@
 }
 
 .desc {
-  height: 30%;
+  width: 270px;
   overflow: hidden;
+  display: inline-block;
+  text-decoration: none;
   text-overflow: ellipsis;
-  word-wrap: break-word;
+  white-space: nowrap;
 }

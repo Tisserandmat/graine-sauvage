@@ -102,6 +102,9 @@
     "egulias/email-validator": {
         "version": "2.1.11"
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.3"
+    },
     "friendsofsymfony/ckeditor-bundle": {
         "version": "2.0",
         "recipe": {
@@ -475,6 +478,9 @@
     },
     "symfony/property-info": {
         "version": "v4.2.8"
+    },
+    "symfony/proxy-manager-bridge": {
+        "version": "v4.4.18"
     },
     "symfony/routing": {
         "version": "4.2",
