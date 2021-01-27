@@ -12,6 +12,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\IsTrue;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationFormType extends AbstractType
 {
@@ -24,26 +26,22 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Benoit'
                 ]
             ])
-
             ->add('lastname', TextType::class, [
                 'label' => 'Nom *',
                 'attr' => [
                     'placeholder' => 'Dupont'
                 ]
             ])
-
             ->add('email', EmailType::class, [
                 'attr' => [
                     'placeholder' => 'benoit.dupont@gmail.com'
                 ]
             ])
-
             ->add('login', TextType::class, [
                 'label' => 'Identifiant *',
-            'attr' => [
-        'placeholder' => 'Dupont45'
+                'attr' => [
+                    'placeholder' => 'Dupont45'
                 ]])
-
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 // instead of being set onto the object directly,
@@ -51,23 +49,38 @@ class RegistrationFormType extends AbstractType
                 'invalid_message' => 'Les champs de mot de passe doivent correspondre.',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => [
+                'first_options' => [
                     'label' => 'Mot de passe *',
+                    'help' => 'Votre mot de passe doit contenir 8 caractères minimum avec 1 majuscule,
+                1 minuscule, 1 chiffre et 1 caractère spécial',
                     'attr' => [
-                    'placeholder' => 'Saisissez votre mot de passe'
+                        'placeholder' => '#Motdepasse01'
                     ]
                 ],
-                'second_options' => ['label' => 'Mot de passe  *',
+                'constraints' => [
+                    new Length([
+                        'min' => 8,
+                        'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
+                    new Regex([
+                        'pattern' => "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,})$/m",
+                        'message' => "Votre mot de passe doit contenir 1 majuscule, 1 minuscule,
+                        1 chiffre et un caractère spécial "
+                    ])
+                ],
+                'second_options' => ['label' => 'Confirmer votre mot de passe',
                     'attr' => [
-                        'placeholder' => 'Confirmer votre mot de passe'
+                        'placeholder' => ''
                     ]
                 ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => 'En cochant cette case, je certifie avoir lu et accepté les '.
+                'label' => 'En cochant cette case, je certifie avoir lu et accepté les ' .
                     ' #CGU# du site.',
                 'mapped' => false,
-                'empty_data'  => null,
+                'empty_data' => null,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez accepter les conditions générale d\'utilisation du site.',
