@@ -6,10 +6,13 @@
     {{ encore_entry_link_tags('vegetableSheet') }}
 {% endblock %}
 {% block body %}
-    <div class="container-fluid page-content">
-        <div class="row justify-content-end  mr-2 mb-4"><h1 class="text-center rounded bg-success p-3 text-light ">Ce
+    <div class="container-fluid page-content" xmlns="http://www.w3.org/1999/html">
+        <div class="row justify-content-between  mr-2 mb-4">
+            <img class="logo-vegetable-sheet offset-1" src="/images/logofiche.png" alt="image principale">
+            <h1 class="text-center rounded bg-success p-3 text-light ">Ce
                 qu'il faut
-                savoir sur {{ vegetable.name }}</h1></div>
+                savoir sur {{ vegetable.name }}</h1>
+            </div>
     </div>
     <div class="container mb-5 mt-5">
         <div class="row  justify-content-between">
@@ -20,7 +23,7 @@
 
             <div>
                 <table class="table table-striped table-hover">
-                    <thead>
+                    <thead class="bg-success text-white">
                     <tr>
                         <th scope="col">Fiche {{ vegetable.name }} </th>
                     </tr>
@@ -36,6 +39,10 @@
                         <td>{{ vegetable.latinName }}</td>
                     </tr>
                     <tr>
+                        <th scope="row">Famille :</th>
+                        <td>{{ vegetable.family }}</td>
+                    </tr>
+                    <tr>
                         <th scope="row">type de légume :</th>
                         <td>{{ vegetable.type }}</td>
                     </tr>
@@ -47,17 +54,15 @@
                         <th scope="row">Type de sol :</th>
                         <td>{{ vegetable.soilType }}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">Type de sol :</th>
-                        <td>{{ vegetable.season }}</td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="mb-4 mt-4">
-            <h2 class="mb-5">Description : </h2>
-            <p>{{ vegetable.description|raw }}</p></div>
+        <div class="row mb-4 mt-4">
+            <div><h2 class="mb-5">Description : </h2></div>
+
+           <div> {{ vegetable.description|raw }}</div>
     </div>
     </div>
 {% endblock %}

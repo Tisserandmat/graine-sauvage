@@ -6,6 +6,7 @@ use App\Entity\Vegetable;
 use App\Form\VegetableType;
 use App\Repository\VegeteableRepository;
 use App\Services\Slugify;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,12 +27,23 @@ class VegetableController extends AbstractController
     /**
      * @Route("/", name="vegetable_index", methods={"GET"})
      * @param VegeteableRepository $vegeteableRepository
+     * @param PaginatorInterface $paginator
+     * @param Request $request
      * @return Response
      */
-    public function index(VegeteableRepository $vegeteableRepository): Response
-    {
+    public function index(
+        VegeteableRepository $vegeteableRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $allVegetables = $vegeteableRepository->findAll();
+        $vegetables = $paginator->paginate(
+            $allVegetables, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            10 // Nombre de résultats par page
+        );
         return $this->render('admin/vegetable/index.html.twig', [
-            'vegetables' => $vegeteableRepository->findAll(),
+            'vegetables' => $vegetables,
         ]);
     }
 
