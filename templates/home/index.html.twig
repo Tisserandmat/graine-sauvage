@@ -29,7 +29,7 @@
         <div class="container-fluid background-card">
 {#            <img class="homePicture" src="images/vegetable6.jpg" alt="image principale">#}
             <div class="row justify-content-center ml-5 mr-5 mt-5">
-                <h2 class="text-center">Légumes du mois</h2>
+                <h2 class="text-center text-primary-color">Légumes du mois</h2>
             </div>
 
 
@@ -60,7 +60,7 @@
                             <h2 class="text-break">LÉGUME</h2>
                             <p class="card-content"> {{ vegetable.description|striptags|raw }}</p>
                             <p class="read-more">
-                                <a class="btn btn-success text-white" href="{{ path('vegetable_sheet', {slug: vegetable.slug} ) }}">Voir</a>
+                                <a class="btn btn-success text-white" href="{{ path('vegetable', {slug: vegetable.slug} ) }}">Voir</a>
                             </p>
                         </div>
                     </div>

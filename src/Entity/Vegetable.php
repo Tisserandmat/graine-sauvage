@@ -3,14 +3,14 @@
 namespace App\Entity;
 
 
-use App\Repository\VegeteableRepository;
+use App\Repository\VegetableRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass=VegeteableRepository::class)
+ * @ORM\Entity(repositoryClass=VegetableRepository::class)
  * @Vich\Uploadable
  */
 class Vegetable
