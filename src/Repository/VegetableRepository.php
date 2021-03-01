@@ -13,7 +13,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Vegetable[]    findAll()
  * @method Vegetable[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class VegeteableRepository extends ServiceEntityRepository
+class VegetableRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

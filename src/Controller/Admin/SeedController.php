@@ -22,7 +22,7 @@ class SeedController extends AbstractController
      */
     public function index(SeedRepository $seedRepository): Response
     {
-        return $this->render('admin/seed/index.html.twig', [
+        return $this->render('admin/seed/vegetable.html.twig', [
             'seeds' => $seedRepository->findAll(),
         ]);
     }
