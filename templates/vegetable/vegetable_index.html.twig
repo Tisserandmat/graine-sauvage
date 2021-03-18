@@ -14,7 +14,9 @@
                 <h1 class="text-center text-primary-color">Nos légumes</h1>
             </div>
         </div>
-        <div class="row  justify-content-end mr-5 col w-100 mt-4">
+      <div class="container">
+
+      <div class="row  justify-content-end col w-100 mt-4">
 
             {{ form_start(vegetableFormSearch) }}
             {{ form_widget(vegetableFormSearch.name) }}
@@ -23,6 +25,7 @@
 
             {{ form_end(vegetableFormSearch) }}
         </div>
+      </div>
         <div class="row mt-5 justify-content-around content-card p-4 m-4">
             {% for vegetable in vegetables %}
                 <div class="blog-card">
@@ -57,10 +60,10 @@
                 </div>
             {% endfor %}
 
-        </div>
-    </div>
-    <div class="row justify-content-center">
+        </div><div class="row justify-content-center">
         {{ knp_pagination_render(vegetables) }}</div>
+    </div>
+
     </div>
     </div>
 
