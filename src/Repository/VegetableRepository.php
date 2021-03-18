@@ -37,22 +37,18 @@ class VegetableRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
-     /**
-    * @return Vegeteable[] Returns an array of Vegeteable objects
-    */
+    /**
+     * @param $search
+     * @return Vegetable|null Returns an array of Vegetable objects
+     */
 
 
-
-
-    /*
-    public function findOneBySomeField($value): ?Vegeteable
+    public function findBySearch(?string $search)
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
+            ->Where("v.name LIKE :search")
+            ->setParameter('search', '%' . $search . '%')
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult();
     }
-    */
 }

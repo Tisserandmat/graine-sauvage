@@ -2,7 +2,7 @@
 @import "vars";
 @import "~bootstrap/scss/bootstrap";
 
-h1{
+h1 {
   font-family: $font-title;
 }
 
@@ -15,10 +15,10 @@ footer {
 }
 
 .navbar {
-   z-index: 2;
- }
+  z-index: 2;
+}
 
-div.page-content{
+div.page-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,6 +28,7 @@ div.page-content{
 .custom-file {
   position: initial;
 }
+
 .custom-file-input {
   opacity: 100;
 }
@@ -36,7 +37,7 @@ div.page-content{
 .pagination {
   margin: 5px;
   //background: red;
-  width: 25%;
+  width: 15%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -47,7 +48,11 @@ div.page-content{
 }
 
 .pagination a {
+  border-radius: 5px;
+}
 
+.pagination a.active {
+  border-radius: 5px;
 }
 
 .footer_img_div {
@@ -60,8 +65,3 @@ div.page-content{
   height: 400px;
   width: 100%;
 }
-
-//.imgfooter {
-//  height: 50%;
-//  width: 100%;
-//}
