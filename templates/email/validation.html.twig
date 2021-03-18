@@ -1,0 +1,5 @@
+{% block body %}
+    <h1>Activation de votre compte Graine Sauvage</h1>
+    <p>Vous avez crée un compte sur notre site, veuillez cliquer sur notre lien ci-dessous pour l'activer</p>
+    <p><a class="btn btn-success text-white" href=" {{ absolute_url(path('app_activation', {'token': token})) }}">Activer mon compte</a></p>
+{% endblock %}

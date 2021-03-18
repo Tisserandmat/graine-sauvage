@@ -9,7 +9,7 @@
 
 {% block dashboard %}
 {% if app.user %}
-{% if is_granted('ROLE_ADMIN') %}
+{% if is_granted('ROLE_SUPER_ADMIN') %}
 <div class="row page-wrapper  chiller-theme">
         <div id="sidebar" class=" bg-primary-color sidebar-wrapper">
             <div class="sidebar-content ">
@@ -126,6 +126,9 @@
     {% block body %}
 
     {% block footer %}
+        <div class="footer_img_div mt-4 ">
+            <img class="w-100 h-100" src="/images/banniere_footer.jpg" alt="image principale">
+        </div>
         {% include '_footer.html.twig' %}
     {% endblock %}
 </div>

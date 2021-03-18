@@ -1,0 +1,70 @@
+{% extends '_layout.html.twig' %}
+{% block title %}
+    Nos des légumes
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('vegetableIndex') }}
+{% endblock %}
+{% block body %}
+    <div class="page-content container-fluid">
+        <div class="background-card">
+            {# <img class="homePicture" src="images/vegetable6.jpg" alt="image principale"> #}
+            <div class="row justify-content-center ml-5 mr-5 mt-5">
+                <h1 class="text-center text-primary-color">Nos légumes</h1>
+            </div>
+        </div>
+        <div class="row  justify-content-end mr-5 col w-100 mt-4">
+
+            {{ form_start(vegetableFormSearch) }}
+            {{ form_widget(vegetableFormSearch.name) }}
+
+            <button type="submit" class="btn btn-success mt-2">Rechercher <i class="fas fa-search"></i></button>
+
+            {{ form_end(vegetableFormSearch) }}
+        </div>
+        <div class="row mt-5 justify-content-around content-card p-4 m-4">
+            {% for vegetable in vegetables %}
+                <div class="blog-card">
+                    <div class="meta col">
+
+                        <img class="photo col p-0 m-0 " alt="{{ vegetable.name }}"
+                             src="{% if vegetable.imageName is  empty %}images/sans-image.jpg"{% else %}
+                        {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
+                        />
+                        {# <ul class="details"> #}
+                        {# <li class="author"><a href="#">John Doe</a></li> #}
+                        {# <li class="date">Aug. 24, 2015</li> #}
+                        {# <li class="tags"> #}
+                        {# <ul> #}
+                        {# <li><a href="#">Learn</a></li> #}
+                        {# <li><a href="#">Code</a></li> #}
+                        {# <li><a href="#">HTML</a></li> #}
+                        {# <li><a href="#">CSS</a></li> #}
+                        {# </ul> #}
+                        {# </li> #}
+                        {# </ul> #}
+                    </div>
+                    <div class="description">
+                        <h1 class="text-truncate">{{ vegetable.name }}</h1>
+                        <h2 class="text-break">LÉGUME</h2>
+                        <p class="card-content"> {{ vegetable.description|striptags|raw }}</p>
+                        <p class="read-more">
+                            <a class="btn btn-success text-white"
+                               href="{{ path('vegetable', {slug: vegetable.slug} ) }}">Voir</a>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        {{ knp_pagination_render(vegetables) }}</div>
+    </div>
+    </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+{% endblock %}
+

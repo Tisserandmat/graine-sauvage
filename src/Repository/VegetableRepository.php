@@ -13,7 +13,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Vegetable[]    findAll()
  * @method Vegetable[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class VegeteableRepository extends ServiceEntityRepository
+class VegetableRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -37,22 +37,18 @@ class VegeteableRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
-     /**
-    * @return Vegeteable[] Returns an array of Vegeteable objects
-    */
+    /**
+     * @param $search
+     * @return Vegetable|null Returns an array of Vegetable objects
+     */
 
 
-
-
-    /*
-    public function findOneBySomeField($value): ?Vegeteable
+    public function findBySearch(?string $search)
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
+            ->Where("v.name LIKE :search")
+            ->setParameter('search', '%' . $search . '%')
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult();
     }
-    */
 }

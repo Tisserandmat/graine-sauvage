@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\Seed;
 use App\Form\SeedType;
 use App\Repository\SeedRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("administrateur/graines")
- * @IsGranted("ROLE_ADMIN")
  */
 class SeedController extends AbstractController
 {
@@ -24,7 +22,7 @@ class SeedController extends AbstractController
      */
     public function index(SeedRepository $seedRepository): Response
     {
-        return $this->render('admin/seed/index.html.twig', [
+        return $this->render('admin/seed/vegetable.html.twig', [
             'seeds' => $seedRepository->findAll(),
         ]);
     }

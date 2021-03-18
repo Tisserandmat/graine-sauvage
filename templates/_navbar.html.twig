@@ -13,7 +13,7 @@
                     Jardinage
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-primary-color" href="">Légumes et potager</a>
+                    <a class="dropdown-item text-primary-color " href="{{ path('index_vegetable') }}">Nos légumes</a>
                     <a class="dropdown-item text-primary-color" href="">Arbres fruitier</a>
                     <a class="dropdown-item text-primary-color" href="">Légumes de saison</a>
                 </div>
@@ -25,13 +25,13 @@
         <ul class="navbar-nav">
             {% if app.user %}
                 <li class="header-menu">
-                    <span>Se déconnecter</span>
+                    <span>Déconnexion</span>
                     <a href="{{ path('app_logout') }}">
-                        <i class=" fas fa-sign-out-alt"></i>
+                        <i class=" btn btn-success fas fa-sign-out-alt"></i>
                     </a>
                 </li>
             {% else %}
-                <a href="{{ path('app_login') }}" class="text-primary-color nav-link"> Connexion</a>
+                <a href="{{ path('app_login') }}" class="text-white btn btn-success nav-link">Se connecter</a>
             {% endif %}
         </ul>
     </div>

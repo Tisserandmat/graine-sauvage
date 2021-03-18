@@ -1,11 +1,12 @@
-td img{
-  width: 100px;
+.vegetablePictures {
+  width:150px;
 }
 
-.flash {
-  margin-top: 100px;
-}
-
-.vich-image img{
-  width: 300px;
+.desc {
+  width: 270px;
+  overflow: hidden;
+  display: inline-block;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

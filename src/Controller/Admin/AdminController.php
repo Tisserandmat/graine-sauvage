@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
 * @Route("/administrateur", name="admin_")
-*@IsGranted("ROLE_ADMIN")
 */
 class AdminController extends AbstractController
 {

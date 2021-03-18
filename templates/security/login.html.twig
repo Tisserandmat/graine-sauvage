@@ -19,7 +19,7 @@
     {% endif %}
     <div class="container">
         <div class="row page-content text-center justify-content-center">
-            <h1 class="h3 mb-5 font-weight-normal mt-5">Mon espace personnel</h1>
+            <h1 class="h3 mb-5 font-weight-normal text-primary-color mt-5">Mon espace personnel</h1>
         </div>
         <div class="row justify-content-center mb-5">
 
@@ -57,7 +57,7 @@
                     <div id="formFooter">
                         <div class="row justify-content-center flex-column text-center">
                             <p><a href="{{ path('app_register') }}">Crée un compte</a></p> <br/>
-                            <p><a href="">Mot de passe oublié ?</a></p>
+                            <p><a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a></p>
                         </div>
                     </div>
                 </div>
