@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Vegetable;
+use App\Form\VegetableSearchType;
 use App\Repository\VegetableRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
@@ -36,17 +37,54 @@ class VegetableController extends AbstractController
         VegetableRepository $vegetableRepo,
         PaginatorInterface $paginator,
         Request $request
-    ) {
+    )
+    {
+        $form = $this->createForm(VegetableSearchType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            $search = $form->getData()->getName();
+            $allVegetablesRepo = $vegetableRepo->findBySearch($search);
+            $vegetables = $paginator->paginate(
+                $allVegetablesRepo, // Requête contenant les données à paginer (ici nos articles)
+                $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+                10 // Nombre de résultats par page
+            );
+            if ( !$allVegetablesRepo ){
 
-        $allVegetablesRepo = $vegetableRepo->findAll();
-        $vegetables = $paginator->paginate(
-            $allVegetablesRepo, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            10 // Nombre de résultats par page
-        );
+                $this->addFlash('danger', 'le légume n\'est pas disponible.');
 
-        return $this->render('vegetable/vegetable_index.html.twig', [
-            'vegetables' => $vegetables,
-        ]);
+                $allVegetablesRepo = $vegetableRepo->findAll();
+                $vegetables = $paginator->paginate(
+                    $allVegetablesRepo, // Requête contenant les données à paginer (ici nos articles)
+                    $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+                    10 // Nombre de résultats par page
+                );
+
+
+                return $this->render('vegetable/vegetable_index.html.twig', [
+                    'vegetables' => $vegetables,
+                    'vegetableFormSearch' => $form->createView()
+                ]);
+
+            }
+            return $this->render('vegetable/vegetable_index.html.twig', [
+                'vegetables' => $vegetables,
+                'vegetableFormSearch' => $form->createView()
+            ]);
+        } else {
+            $allVegetablesRepo = $vegetableRepo->findAll();
+            $vegetables = $paginator->paginate(
+                $allVegetablesRepo, // Requête contenant les données à paginer (ici nos articles)
+                $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+                10 // Nombre de résultats par page
+            );
+
+            return $this->render('vegetable/vegetable_index.html.twig', [
+                'vegetables' => $vegetables,
+                'vegetableFormSearch' => $form->createView()
+            ]);
+        }
     }
+
+
 }
