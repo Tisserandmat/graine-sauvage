@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Seed;
 use App\Entity\Vegetable;
+use App\Repository\VegetableRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
@@ -29,6 +30,7 @@ class VegetableFixtures extends Fixture
                 ->setLatinName('nom latin ' .$i)
                 ->setSoilType($faker->word)
                 ->setSize($faker->numberBetween(0, 100))
+                ->setSlug($faker->slug)
                 ->setType('Type de légume ' . $i)
                 ->setSeed($this->getReference('seed_'. $i));
              $manager->persist($vegetable);

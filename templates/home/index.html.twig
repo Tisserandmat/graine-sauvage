@@ -1,78 +1,105 @@
 {% extends '_layout.html.twig' %}
 {% block title %}
-    {{ parent() }}
+  {{ parent() }}
 {% endblock %}
 {% block stylesheets %}
-    {{ parent() }}
-    {{ encore_entry_link_tags('home') }}
+  {{ parent() }}
+  {{ encore_entry_link_tags('home') }}
 {% endblock %}
 {% block body %}
 
-    <div class="w-100  d-flex homeTop ">
-        <img class="homePicture" src="images/seed.jpg" alt="image principale">
+  <div class="w-100  d-flex homeTop ">
+    <img class="homePicture" src="images/seed.jpg" alt="image principale">
 
-        <div class="homeTxt d-flex title-content  text-center w-100 p-0  flex-column justify-content-around align-items-center align-self-center">
-            <h1 class="ml5 text-light title-h1">
+    <div
+      class="homeTxt d-flex title-content  text-center w-100 p-0  flex-column justify-content-around align-items-center align-self-center">
+      <h1 class="ml5 text-light title-h1">
                     <span class="text-wrapper p-4 m-4">
                         <span class="line line1"></span>
                         <span class="letters letters-left">Graine</span>
                         <span class="letters letters-right">Sauvage</span>
                         <span class="line line2"></span>
                     </span>
-            </h1>
-        </div>
-
+      </h1>
     </div>
-    <div class="container-fluid">
-        {% if vegetables is not null %}
 
-        <div class="container-fluid background-card">
-{#            <img class="homePicture" src="images/vegetable6.jpg" alt="image principale">#}
-            <div class="row justify-content-center ml-5 mr-5 mt-5">
-                <h2 class="text-center text-primary-color">Légumes du mois</h2>
+  </div>
+  <div class="container-fluid">
+    {% if vegetables is not null %}
+
+    <div class="container-fluid background-card">
+      {# <img class="homePicture" src="images/vegetable6.jpg" alt="image principale"> #}
+      <div class="row justify-content-center ml-5 mr-5 mt-5">
+        <h2 class="text-center text-primary-color">Légumes du mois</h2>
+      </div>
+
+
+      <div class="row mt-5 justify-content-around content-card p-4 m-4">
+        {% for vegetable in vegetables %}
+          <div class="blog-card ">
+            <div class="meta col">
+
+              <img class="photo col p-0 m-0 " alt="{{ vegetable.name }}"
+                   src="{% if vegetable.imageName is  empty %}images/sans-image.jpg"{% else %}
+              {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
+              />
+              {# <ul class="details"> #}
+              {# <li class="author"><a href="#">John Doe</a></li> #}
+              {# <li class="date">Aug. 24, 2015</li> #}
+              {# <li class="tags"> #}
+              {# <ul> #}
+              {# <li><a href="#">Learn</a></li> #}
+              {# <li><a href="#">Code</a></li> #}
+              {# <li><a href="#">HTML</a></li> #}
+              {# <li><a href="#">CSS</a></li> #}
+              {# </ul> #}
+              {# </li> #}
+              {# </ul> #}
             </div>
-
-
-            <div class="row mt-5 justify-content-around content-card p-4 m-4">
-                {% for vegetable in vegetables %}
-                    <div class="blog-card ">
-                        <div class="meta col">
-
-                            <img class="photo col p-0 m-0 " alt="{{ vegetable.name }}"
-                                 src="{% if vegetable.imageName is  empty %}images/sans-image.jpg"{% else %}
-                            {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
-                            />
-{#                            <ul class="details">#}
-{#                                <li class="author"><a href="#">John Doe</a></li>#}
-{#                                <li class="date">Aug. 24, 2015</li>#}
-{#                                <li class="tags">#}
-{#                                    <ul>#}
-{#                                        <li><a href="#">Learn</a></li>#}
-{#                                        <li><a href="#">Code</a></li>#}
-{#                                        <li><a href="#">HTML</a></li>#}
-{#                                        <li><a href="#">CSS</a></li>#}
-{#                                    </ul>#}
-{#                                </li>#}
-{#                            </ul>#}
-                        </div>
-                        <div class="description">
-                            <h1 class="text-truncate">{{ vegetable.name }}</h1>
-                            <h2 class="text-break">LÉGUME</h2>
-                            <p class="card-content"> {{ vegetable.description|striptags|raw }}</p>
-                            <p class="read-more">
-                                <a class="btn btn-success text-white" href="{{ path('vegetable', {slug: vegetable.slug} ) }}">Voir</a>
-                            </p>
-                        </div>
-                    </div>
-                {% endfor %}
+            <div class="description">
+              <h1 class="text-truncate">{{ vegetable.name }}</h1>
+              <h2 class="text-break">LÉGUME</h2>
+              <p class="card-content"> {{ vegetable.description|striptags|raw }}</p>
+              <p class="read-more">
+                <a class="btn btn-success text-white" href="{{ path('vegetable', {slug: vegetable.slug} ) }}">Voir</a>
+              </p>
             </div>
-            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="container p-5 justify-content-center mt-5">
+      <div class="jumbotron card rounded bg-jumbo-green">
+        <div class="justify-content-center d-flex text-break">
+          <h1 class="display-5 text-primary-color">Nos motivations ! </h1>
+          <img class="smile offset-1" src="/images/smilelogo.png" alt="Smile">
         </div>
+        <p class="lead">Bonjour à tous, <br>
+          se site a été crée en septembre 2020 par Tisserand Mathias, c'est un projet perso qui à débuter à la fin de la
+          formation
+          de développeur web a la wild code school d'Orléans et qui à pour but de proposer des services pertinent en
+          rapport avec le monde du jardinage,
+          la nature et bien sur des bonnes recettes !
+        </p>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi at delectus, deserunt
+          distinctio eligendi id illo illum incidunt ipsam iure mollitia neque obcaecati, odio placeat quibusdam
+          reiciendis voluptatibus. Hic.</p>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi at delectus, deserunt
+          distinctio eligendi id illo illum incidunt ipsam iure mollitia neque obcaecati, odio placeat quibusdam
+          reiciendis voluptatibus. Hic.</p>
+        <hr class="my-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur culpa ipsam iusto nam possimus
+          recusandae! Atque, necessitatibus voluptatibus? Aperiam debitis exercitationem id illo itaque modi neque quasi
+          reprehenderit sequi voluptatem? It uses utility classes for typography and spacing to space content out within
+          the larger container.</p>
+      </div>
     </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 {% endblock %}
 {% block javascripts %}{{ parent() }}
-    {{ encore_entry_script_tags('home_js') }}
-    {{ encore_entry_script_tags('sidebar_js') }}
+  {{ encore_entry_script_tags('home_js') }}
+  {{ encore_entry_script_tags('sidebar_js') }}
 {% endblock %}
