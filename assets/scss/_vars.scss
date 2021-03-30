@@ -3,6 +3,7 @@
 
 $primary-color : #005668;;
 $light-green : #5a974c;
+$jumbo-green : #9fbf93;
 $light-color: #ffffff;
 $sun-color: #FF9505;
 
@@ -18,6 +19,7 @@ $size-title: calc(10* var($size-text));
 $theme-colors: (
         "danger": #FF4136,
         "success": $light-green,
+        "jumbo-green": $jumbo-green,
         "info": #FF9505,
         "primary-color": $primary-color,
         "nav": #203630,

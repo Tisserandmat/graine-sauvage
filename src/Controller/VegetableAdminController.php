@@ -59,11 +59,11 @@ class VegetableAdminController extends AbstractController
         $form = $this->createForm(VegetableType::class, $vegetable);
         $form->handleRequest($request);
 
-        $slug = $slugify->generate($vegetable->getName());
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-
+            $slug = $slugify->generate($vegetable->getName());
             $vegetable->setSlug($slug);
 
             if (in_array($vegetable->getHarvestMonth(), self::SEASONS["Printemps"])) {
