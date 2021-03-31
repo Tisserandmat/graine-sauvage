@@ -57,14 +57,14 @@ class VegetableType extends AbstractType
                 'label' => 'Type de sol',
                 'attr' => [
                     'placeholder' => 'Sol limoneux'
-                ]])//            ->add('seed')
+                ]])
+          //            ->add('seed')
             ->add('imageFile', VichFileType::class, [
                 'required'      => false,
                 'allow_delete'  => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
             ]);
         ;
-
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Land index{% endblock %}
+
+{% block body %}
+    <h1>Land index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>ZipCode</th>
+                <th>Price</th>
+                <th>Slug</th>
+                <th>ImageName</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for land in lands %}
+            <tr>
+                <td>{{ land.id }}</td>
+                <td>{{ land.name }}</td>
+                <td>{{ land.description }}</td>
+                <td>{{ land.city }}</td>
+                <td>{{ land.address }}</td>
+                <td>{{ land.zipCode }}</td>
+                <td>{{ land.price }}</td>
+                <td>{{ land.slug }}</td>
+                <td>{{ land.imageName }}</td>
+                <td>{{ land.updatedAt ? land.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('land_show', {'id': land.id}) }}">show</a>
+                    <a href="{{ path('land_edit', {'id': land.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('land_new') }}">Create new</a>
+{% endblock %}

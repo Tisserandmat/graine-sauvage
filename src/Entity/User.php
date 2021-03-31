@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -121,6 +123,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $activation_token;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Land::class, mappedBy="Users", orphanRemoval=true)
+     */
+    private $lands;
+
+    public function __construct()
+    {
+        $this->lands = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -316,6 +328,36 @@ class User implements UserInterface
     public function setActivationToken(?string $activation_token): self
     {
         $this->activation_token = $activation_token;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Land[]
+     */
+    public function getLands(): Collection
+    {
+        return $this->lands;
+    }
+
+    public function addLand(Land $land): self
+    {
+        if (!$this->lands->contains($land)) {
+            $this->lands[] = $land;
+            $land->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLand(Land $land): self
+    {
+        if ($this->lands->removeElement($land)) {
+            // set the owning side to null (unless already changed)
+            if ($land->getUsers() === $this) {
+                $land->setUsers(null);
+            }
+        }
 
         return $this;
     }
