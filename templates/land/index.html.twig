@@ -1,51 +1,60 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Land index{% endblock %}
-
+{% extends '_layout.html.twig' %}
+{% block title %}Liste des terrains {% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('indexAdmin') }}
+{% endblock %}
 {% block body %}
-    <h1>Land index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>City</th>
-                <th>Address</th>
-                <th>ZipCode</th>
-                <th>Price</th>
-                <th>Slug</th>
-                <th>ImageName</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
+  <div class="container page-content mb-4">
+    <h1 class="text-center mt-5">Liste des terrains</h1>
+    <div class="row justify-content-center mb-5">
+      <button class="btn btn-primary-color"><a href="{{ path('land_new') }}" class="text-light"><i
+            class="fas fa-plus"></i> Ajouter</a></button>
+    </div>
+    <div class="container-fluid">
+      <div class="row justify-content-center text-center">
+        <table class="table table-striped table-responsive table-hover mt-5">
+          <thead class="bg-success">
+          <tr class="text-light align-middle text-center">
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>ZipCode</th>
+            <th>Price</th>
+            <th>actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for land in lands %}
+            <tr class="justify-content-center text-break text-center">
+              <td><img class="photo rounded boardPicturies p-0 mt-0 " alt="{{ land.name }}"
+                       src="{% if land.imageName is  empty %}/images/sans-image.jpg"{% else %}
+                {{ vich_uploader_asset(land, 'imageFile') }}" {% endif %}
+                />
+              </td>
+              <td class="align-middle text-break">{{ land.name }}</td>
+              <td class="align-middle text-break desc">{{ land.description|striptags|raw }}</td>
+              <td class="align-middle text-break">{{ land.city }}</td>
+              <td class="align-middle text-break">{{ land.address }}</td>
+              <td class="align-middle text-break">{{ land.zipCode }}</td>
+              <td class="align-middle text-break">{{ land.price }}</td>
+              <td class="align-middle">
+                <a href="{{ path('land_show', {'id': land.id}) }}" class="btn btn-success"><i
+                    class=" text-light fa fa-eye"></i></a>
+                <a href="{{ path('land_edit', {'id': land.id}) }}" class="btn btn-info"><i
+                    class="text-light fas fa-pen"></i></a>
+              </td>
             </tr>
-        </thead>
-        <tbody>
-        {% for land in lands %}
+          {% else %}
             <tr>
-                <td>{{ land.id }}</td>
-                <td>{{ land.name }}</td>
-                <td>{{ land.description }}</td>
-                <td>{{ land.city }}</td>
-                <td>{{ land.address }}</td>
-                <td>{{ land.zipCode }}</td>
-                <td>{{ land.price }}</td>
-                <td>{{ land.slug }}</td>
-                <td>{{ land.imageName }}</td>
-                <td>{{ land.updatedAt ? land.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('land_show', {'id': land.id}) }}">show</a>
-                    <a href="{{ path('land_edit', {'id': land.id}) }}">edit</a>
-                </td>
+              <td colspan="11">no records found</td>
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('land_new') }}">Create new</a>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 {% endblock %}

@@ -3,15 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Land;
+use DateTime;
 use App\Form\LandType;
 use App\Repository\LandRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/potager")
+ * @Route("/terrains")
  */
 class LandController extends AbstractController
 {
@@ -25,20 +27,27 @@ class LandController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="land_new", methods={"GET","POST"})
-     */
+  /**
+   * @Route("/enregistrer-un-terrain", name="land_new", methods={"GET","POST"})
+   * @IsGranted("ROLE_USER")
+   * @param Request $request
+   * @return Response
+   */
     public function new(Request $request): Response
     {
         $land = new Land();
+        $date = new DateTime('now');
         $form = $this->createForm(LandType::class, $land);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $land->setUsers($this->getUser());
+            $land->setRegistrationDate($date);
+            $land->setLandNotAvailable(false);
             $entityManager->persist($land);
             $entityManager->flush();
-
+//            dd($land);
             return $this->redirectToRoute('land_index');
         }
 

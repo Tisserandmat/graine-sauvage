@@ -62,7 +62,7 @@ class Land
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="integer", length=20)
      * @Assert\NotBlank(
      *     message="Le code postal est obligatoire"
      * )
@@ -115,6 +115,26 @@ class Land
      * @ORM\JoinColumn(nullable=false)
      */
     private $Users;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $registrationDate;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $reservationStart;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $reservationEnd;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $landNotAvailable;
 
   /**
    * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -248,6 +268,54 @@ class Land
     public function setUsers(?User $Users): self
     {
         $this->Users = $Users;
+
+        return $this;
+    }
+
+    public function getRegistrationDate(): ?\DateTimeInterface
+    {
+        return $this->registrationDate;
+    }
+
+    public function setRegistrationDate(\DateTimeInterface $registrationDate): self
+    {
+        $this->registrationDate = $registrationDate;
+
+        return $this;
+    }
+
+    public function getReservationStart(): ?\DateTimeInterface
+    {
+        return $this->reservationStart;
+    }
+
+    public function setReservationStart(?\DateTimeInterface $reservationStart): self
+    {
+        $this->reservationStart = $reservationStart;
+
+        return $this;
+    }
+
+    public function getReservationEnd(): ?\DateTimeInterface
+    {
+        return $this->reservationEnd;
+    }
+
+    public function setReservationEnd(?\DateTimeInterface $reservationEnd): self
+    {
+        $this->reservationEnd = $reservationEnd;
+
+        return $this;
+    }
+
+    public function getLandNotAvailable(): ?bool
+    {
+        return $this->landNotAvailable;
+    }
+
+    public function setLandNotAvailable(bool $landNotAvailable): self
+    {
+        $this->landNotAvailable = $landNotAvailable;
 
         return $this;
     }

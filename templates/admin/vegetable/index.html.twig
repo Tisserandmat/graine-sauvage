@@ -1,68 +1,68 @@
 {% extends '_layout.html.twig' %}
 {% block title %}Administration plantes{% endblock %}
 {% block stylesheets %}
-    {{ parent() }}
-    {{ encore_entry_link_tags('indexAdmin') }}
+  {{ parent() }}
+  {{ encore_entry_link_tags('indexAdmin') }}
 {% endblock %}
 {% block body %}
-    <div class="container page-content mb-4">
-        <h1 class="text-center mt-5 mb-5">Liste des légumes</h1>
+  <div class="container page-content mb-4">
+    <h1 class="text-center mt-5 mb-5">Liste des légumes</h1>
 
-        <div class="row justify-content-center mb-5">
-            <button class="btn btn-primary-color"><a href="{{ path('vegetable_new') }}" class="text-light"><i
-                            class="fas fa-plus"></i> Ajouter</a></button>
-        </div>
+    <div class="row justify-content-center mb-5">
+      <button class="btn btn-primary-color"><a href="{{ path('vegetable_new') }}" class="text-light"><i
+            class="fas fa-plus"></i> Ajouter</a></button>
     </div>
-    <div class="container-fluid">
-        <div class="row justify-content-center text-center">
-            <table class="table col-10 table-striped table-responsive table-hover mt-5">
-                <thead class="bg-success">
-                <tr class="text-light align-middle text-center">
-                    <th class="align-middle">Images</th>
-                    <th class="align-middle">Nom</th>
-                    <th class="align-middle">Description</th>
-                    <th class="align-middle">Nom Latin</th>
-                    <th class="align-middle">Famille</th>
-                    <th class="align-middle">Type</th>
-                    <th class="align-middle">Taille</th>
-                    <th class="align-middle">Récolte</th>
-                    <th class="align-middle">Type de sol</th>
-                    <th class="align-middle">actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for vegetable in vegetables %}
-                    <tr class="justify-content-center text-break text-center">
-                        <td><img class="photo rounded vegetablePictures p-0 mt-0 " alt="{{ vegetable.name }}"
-                                 src="{% if vegetable.imageName is  empty %}/images/sans-image.jpg"{% else %}
-                            {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
-                            />
-                        </td>
-                        <td class="align-middle text-break">{{ vegetable.name }}</td>
-                        <td class="align-middle text-break desc "><p></p>{{ vegetable.description|striptags|raw }}</td>
-                        <td class="align-middle text-break">{{ vegetable.latinName }}</td>
-                        <td class="align-middle text-break">{{ vegetable.family }}</td>
-                        <td class="align-middle text-break">{{ vegetable.type }}</td>
-                        <td class="align-middle text-break">{{ vegetable.size }}</td>
-                        <td class="align-middle text-break">{{ vegetable.harvestMonth }}</td>
-                        <td class="align-middle text-break">{{ vegetable.soilType }}</td>
-                        <td class="align-middle">
-                            <a href="{{ path('vegetable_show', {'id': vegetable.id}) }}" class="btn btn-success"><i
-                                        class=" text-light fa fa-eye"></i> </a>
-                            <a href="{{ path('vegetable_edit', {'id': vegetable.id}) }}" class="btn btn-info "><i
-                                        class="text-light fas fa-pen"></i></a>
-                        </td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="10">no records found</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="row justify-content-center">
-            {{ knp_pagination_render(vegetables) }}</div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center text-center">
+      <table class="table col-10 table-striped table-responsive table-hover mt-5">
+        <thead class="bg-success">
+        <tr class="text-light align-middle text-center">
+          <th class="align-middle">Images</th>
+          <th class="align-middle">Nom</th>
+          <th class="align-middle">Description</th>
+          <th class="align-middle">Nom Latin</th>
+          <th class="align-middle">Famille</th>
+          <th class="align-middle">Type</th>
+          <th class="align-middle">Taille</th>
+          <th class="align-middle">Récolte</th>
+          <th class="align-middle">Type de sol</th>
+          <th class="align-middle">actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for vegetable in vegetables %}
+          <tr class="justify-content-center text-break text-center">
+            <td><img class="photo rounded boardPicturies p-0 mt-0 " alt="{{ vegetable.name }}"
+                     src="{% if vegetable.imageName is  empty %}/images/sans-image.jpg"{% else %}
+              {{ vich_uploader_asset(vegetable, 'imageFile') }}" {% endif %}
+              />
+            </td>
+            <td class="align-middle text-break">{{ vegetable.name }}</td>
+            <td class="align-middle text-break desc "><p></p>{{ vegetable.description|striptags|raw }}</td>
+            <td class="align-middle text-break">{{ vegetable.latinName }}</td>
+            <td class="align-middle text-break">{{ vegetable.family }}</td>
+            <td class="align-middle text-break">{{ vegetable.type }}</td>
+            <td class="align-middle text-break">{{ vegetable.size }}</td>
+            <td class="align-middle text-break">{{ vegetable.harvestMonth }}</td>
+            <td class="align-middle text-break">{{ vegetable.soilType }}</td>
+            <td class="align-middle">
+              <a href="{{ path('vegetable_show', {'id': vegetable.id}) }}" class="btn btn-success"><i
+                  class=" text-light fa fa-eye"></i> </a>
+              <a href="{{ path('vegetable_edit', {'id': vegetable.id}) }}" class="btn btn-info "><i
+                  class="text-light fas fa-pen"></i></a>
+            </td>
+          </tr>
+        {% else %}
+          <tr>
+            <td colspan="10">no records found</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     </div>
+    <div class="row justify-content-center">
+      {{ knp_pagination_render(vegetables) }}</div>
+  </div>
 
 {% endblock %}

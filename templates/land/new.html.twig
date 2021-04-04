@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends '_layout.html.twig' %}
 
-{% block title %}New Land{% endblock %}
+{% block title %}Ajouter un terrain{% endblock %}
 
 {% block body %}
-    <h1>Create new Land</h1>
+  <div class="container page-content">
+  <h1 class="text-center mt-5 mb-4">Ajouté votre terrain</h1>
 
     {{ include('land/_form.html.twig') }}
 
-    <a href="{{ path('land_index') }}">back to list</a>
+    <button class="btn btn-primary-color"><a href="{{ path('land_index') }}" class="text-white"><i
+          class="fas fa-arrow-left"></i> Revenir à la l'index</a>
+    </button>
+  </div>
 {% endblock %}
